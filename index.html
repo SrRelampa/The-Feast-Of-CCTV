@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Feast Of CCTV</title>
+  <title>Registro - The Feast Of CCTV</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -16,7 +16,6 @@
 
     <ul class="main-menu">
       <li><a href="index.html">Inicio</a></li>
-
       <li class="has-submenu">
         <span class="parent-title">Información</span>
         <ul class="submenu">
@@ -25,21 +24,80 @@
           <li><a href="comojugar.html">¿Cómo jugar?</a></li>
         </ul>
       </li>
-
       <li><a href="Registro.html">Registros</a></li>
     </ul>
   </div>
 
-  <div class="banner">
-    <div class="banner-content">
-      <img src="Img/Banner.jpg" class="banner-img">
-    </div>
-  </div>
+  <main class="content-wrapper">
+    <div class="contenedor-registro">
+      <div class="header-registro">
+        <img src="Img/Logo.png" alt="Logo" class="mini-logo">
+        <h1>Únete a la Beta</h1>
+        <p class="subtitle">¡Sé de los primeros en jugar The Feast Of CCTV!</p>
+      </div>
 
-  <section>
+      <hr class="separador">
+
+      <form action="#" method="POST">
+        <div class="campo">
+          <label>Gamertag (Apodo):</label>
+          <input type="text" name="gamertag" placeholder="Tu nombre de jugador" required>
+        </div>
+
+        <div class="campo">
+          <label>Correo Electrónico:</label>
+          <input type="email" name="email" placeholder="tu-correo@ejemplo.com" required>
+        </div>
+
+        <div class="campo">
+          <label>Contraseña:</label>
+          <input type="password" name="password" placeholder="Mínimo 8 caracteres" required>
+        </div>
+
+        <div class="campo">
+          <label>Plataforma Preferida:</label>
+          <select name="platform" required>
+            <option value="">Selecciona una plataforma</option>
+            <option value="pc">PC</option>
+            <option value="ps5">PlayStation 5</option>
+            <option value="xbox">Xbox Series X/S</option>
+            <option value="mobile">Mobile</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label>¿Cómo prefieres jugar?</label>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="solo" name="modo" value="solo">
+              <label for="solo">Solo</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="coop" name="modo" value="cooperativo">
+              <label for="coop">Cooperativo</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="pvp" name="modo" value="pvp">
+              <label for="pvp">PvP</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label>
+            <input type="checkbox" name="terminos" required>
+            Acepto los términos y condiciones de la beta
+          </label>
+        </div>
+
+        <button type="submit" class="boton-enviar">Registrarse en la Beta</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
     <footer class="site-footer">
       <div class="footer-wrapper">
-        <!-- Columna izquierda: Logo + Contacto -->
         <div class="footer-column left">
           <img src="img/Logo.png" alt="The Feast Of CCTV" class="footer-logo">         
           <div class="contact-info">
@@ -49,7 +107,6 @@
           </div>
         </div>
 
-        <!-- Columna derecha: Redes Sociales -->
         <div class="footer-column right">
           <h4>REDES SOCIALES</h4>
           <div class="social-icons">
@@ -73,7 +130,7 @@
         © 2026 The Feast Of CCTV
       </div>
     </footer>
-  </section>
+  </footer>
 
 </body>
 </html>
