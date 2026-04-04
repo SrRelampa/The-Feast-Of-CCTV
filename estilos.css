@@ -87,6 +87,23 @@ body {
   display: block;
 }
 
+/* --- Header / Navegación --- */
+
+.banner {
+    background-image: url("Img/Banner.jpg");
+    background-size: cover;
+    background-position: right center; /* importante */
+    background-repeat: no-repeat;
+
+    height: 350px; /* más bajo */
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-left: 8%;
+}
+
 /* --- Estilos Específicos del Formulario de Registro --- */
 .content-wrapper {
   padding: 40px 5%;
