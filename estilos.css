@@ -4,7 +4,7 @@
   --lavanda-medio: #B38BC2;
   --lavanda-fuerte: #6A4E9C;
   --azul-lavanda: #A8C4E8;
-  --fondo: #F0E8F5; /* Tono lila más presente que el anterior */
+  --fondo: #F0E8F5; 
   --blanco: #ffffff;
   --texto-oscuro: #2d3436;
 }
@@ -19,26 +19,42 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Header / Navegación --- */
+/* --- Header / Navegación (LOGO ACTUALIZADO) --- */
 .kyamo {
   background: linear-gradient(90deg, var(--lavanda-fuerte), var(--lavanda-medio));
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 5%;
+  padding: 10px 5%; /* Reducido un poco el padding vertical para el logo más grande */
   box-shadow: 0 4px 15px rgba(106, 78, 156, 0.25);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.left { display: flex; align-items: center; }
-.logo { width: 45px; height: auto; margin-right: 15px; }
+.left { 
+  display: flex; 
+  align-items: center; 
+  gap: 15px; /* Espacio uniforme entre logo y texto */
+}
+
+/* Subimos el tamaño del logo para que luzca la resolución 2000x2000 */
+.logo { 
+  width: 70px; /* Antes era 45px, ahora es casi el doble */
+  height: auto; 
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.08); /* Pequeño efecto al pasar el mouse */
+}
+
 .brand-name {
   color: white;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-size: 1.4rem; /* Un poco más grande para equilibrar el logo */
   margin: 0;
 }
 
@@ -50,7 +66,7 @@ body {
   padding: 8px 12px;
   border-radius: 20px;
   transition: 0.3s;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 .main-menu a:hover, .parent-title:hover { background-color: rgba(255, 255, 255, 0.2); }
 
@@ -66,9 +82,9 @@ body {
   list-style: none;
   top: 100%;
   left: 0;
-  min-width: 150px;
+  min-width: 160px;
 }
-.submenu li a { color: var(--lavanda-fuerte); display: block; padding: 8px; text-decoration: none; }
+.submenu li a { color: var(--lavanda-fuerte); display: block; padding: 10px; text-decoration: none; }
 .submenu li a:hover { background-color: var(--lavanda-claro); border-radius: 5px; }
 .has-submenu:hover .submenu { display: block; }
 
@@ -99,13 +115,12 @@ body {
 .banner-text h1 { font-size: 3rem; margin: 0 0 10px 0; }
 .banner-text p { font-size: 1.3rem; font-weight: 300; margin: 0; }
 
-/* --- CUERPO PRINCIPAL (BLOQUES DE COLOR) --- */
+/* --- CUERPO PRINCIPAL --- */
 .main-content {
   padding: 80px 10%;
   background: linear-gradient(180deg, #F0E8F5 0%, #FFFFFF 100%);
 }
 
-/* Sección Misión como Tarjeta Blanca Flotante */
 .mission-section {
   text-align: center;
   background: white;
@@ -141,7 +156,6 @@ body {
   margin: 0 auto;
 }
 
-/* Grid de Características con Bordes de Color */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -166,19 +180,19 @@ body {
 
 .feature-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
 
-/* Sección Proyecto Destacado (BLOQUE OSCURO CONTRASTADO) */
+/* Sección Proyecto Destacado */
 .featured-project {
   background: linear-gradient(135deg, var(--lavanda-fuerte) 0%, var(--lavanda-medio) 100%);
   padding: 60px;
   border-radius: 40px;
   box-shadow: 0 15px 40px rgba(106, 78, 156, 0.3);
-  color: white; /* Cambiamos el texto a blanco para legibilidad */
+  color: white;
 }
 
 .project-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
 
 .project-info .subtitle {
-  color: var(--lavanda-claro); /* Resalta sobre el fondo oscuro */
+  color: var(--lavanda-claro);
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 0.9rem;
@@ -189,7 +203,7 @@ body {
     font-size: 2.8rem;
     font-weight: bold;
     margin: 10px 0 20px 0;
-    -webkit-text-fill-color: white; /* Asegura que no sea transparente */
+    -webkit-text-fill-color: white;
 }
 
 .project-info p { color: rgba(255, 255, 255, 0.9); line-height: 1.6; }
@@ -213,7 +227,7 @@ body {
 .project-image { flex: 1; text-align: center; }
 .floating-img {
   width: 100%;
-  max-width: 280px;
+  max-width: 350px; /* Logo del juego también un poco más grande */
   filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
   animation: float 4s ease-in-out infinite;
 }
@@ -222,7 +236,7 @@ body {
 @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* --- Footer --- */
+/* --- Footer (LOGO ACTUALIZADO) --- */
 .site-footer {
   background-color: var(--lavanda-fuerte);
   color: white;
@@ -231,7 +245,14 @@ body {
 }
 
 .footer-wrapper { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
-.footer-logo { width: 90px; margin-bottom: 15px; }
+
+/* El logo del footer ahora es mucho más imponente */
+.footer-logo { 
+  width: 140px; 
+  height: auto; 
+  margin-bottom: 20px; 
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+}
 
 .social-icons img { width: 32px; margin-right: 15px; transition: transform 0.3s; }
 .social-icons img:hover { transform: translateY(-5px); }
@@ -247,12 +268,11 @@ body {
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-  .kyamo { flex-direction: column; padding: 15px; }
-  .brand-name { margin-bottom: 15px; }
-  .main-menu { flex-wrap: wrap; justify-content: center; }
+  .kyamo { padding: 15px; }
+  .logo { width: 60px; } /* Ajuste móvil */
+  .brand-name { font-size: 1.1rem; }
+  .main-menu { justify-content: center; margin-top: 10px; }
   .banner-text { left: 0; padding: 20px; text-align: center; width: 100%; }
-  .banner-text h1 { font-size: 2rem; }
   .project-container { flex-direction: column; text-align: center; }
-  .project-name { font-size: 2.2rem; }
   .main-content { padding: 40px 5%; }
 }
