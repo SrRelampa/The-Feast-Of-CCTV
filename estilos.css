@@ -1,12 +1,10 @@
-/* ====================== VARIABLES Y PALETA ====================== */
+ /* ====================== VARIABLES Y PALETA ====================== */
 :root {
   --lavanda-claro: #E6D4E8;
   --lavanda-medio: #B38BC2;
   --lavanda-fuerte: #6A4E9C;
   --azul-lavanda: #A8C4E8;
   --fondo: #F8F0FF;
-  --blanco: #ffffff;
-  --texto-oscuro: #2d3436;
 }
 
 /* --- General --- */
@@ -15,8 +13,8 @@ body {
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--fondo);
-  color: var(--texto-oscuro);
-  overflow-x: hidden;
+  color: #2d3436;
+  overflow-x: hidden; /* Evita el scroll horizontal */
 }
 
 /* --- Header / Navegación --- */
@@ -32,8 +30,17 @@ body {
   z-index: 1000;
 }
 
-.left { display: flex; align-items: center; }
-.logo { width: 45px; height: auto; margin-right: 15px; }
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 45px;
+  height: auto;
+  margin-right: 15px;
+}
+
 .brand-name {
   color: white;
   text-transform: uppercase;
@@ -43,7 +50,14 @@ body {
 }
 
 /* Menú */
-.main-menu { list-style: none; display: flex; gap: 10px; margin: 0; padding: 0; }
+.main-menu {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
 .main-menu a, .parent-title {
   color: white;
   text-decoration: none;
@@ -54,7 +68,10 @@ body {
   font-size: 0.9rem;
   cursor: pointer;
 }
-.main-menu a:hover, .parent-title:hover { background-color: rgba(255, 255, 255, 0.2); }
+
+.main-menu a:hover, .parent-title:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
 /* Submenú */
 .has-submenu { position: relative; }
@@ -70,89 +87,90 @@ body {
   left: 0;
   min-width: 150px;
 }
+
 .submenu li a { color: var(--lavanda-fuerte); display: block; }
 .has-submenu:hover .submenu { display: block; }
 
-/* --- BANNER --- */
+/* --- BANNER (EL ARREGLO PRINCIPAL) --- */
 .banner {
   width: 100%;
-  position: relative;
-  overflow: hidden;
+  line-height: 0; /* Quita espacios fantasma debajo de la imagen */
 }
 
-.banner-container { position: relative; line-height: 0; }
-.banner-img { width: 100%; height: auto; display: block; }
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-.banner-text {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  transform: translateY(-50%);
+/* --- Footer --- */
+.site-footer {
+  background-color: var(--lavanda-fuerte);
   color: white;
-  text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
-  max-width: 500px;
-  line-height: normal; /* Restablece el line-height para el texto */
+  padding: 40px 5% 20px;
+  border-top: 5px solid var(--azul-lavanda);
 }
 
-.banner-text h1 { font-size: 3rem; margin: 0 0 10px 0; }
-.banner-text p { font-size: 1.3rem; font-weight: 300; margin: 0; }
-
-/* --- CUERPO PRINCIPAL (LO NUEVO) --- */
-.main-content {
-  padding: 80px 10%;
-  background-color: var(--blanco); /* Fondo blanco para resaltar el contenido */
-}
-
-/* Sección Misión */
-.mission-section {
-  text-align: center;
-  margin-bottom: 100px;
-  animation: fadeIn 1s ease-out;
-}
-
-.section-title {
-  color: var(--lavanda-fuerte);
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.mission-text {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: #555;
-  max-width: 850px;
-  margin: 0 auto;
-}
-
-/* Sección Proyecto Destacado */
-.featured-project {
-  background-color: #fcfaff;
-  padding: 50px;
-  border-radius: 30px;
-  box-shadow: 0 15px 40px rgba(179, 139, 194, 0.1);
-}
-
-.project-container {
+.footer-wrapper {
   display: flex;
-  align-items: center;
-  gap: 50px;
+  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
-.project-info { flex: 1; min-width: 300px; }
-.subtitle {
-  color: var(--lavanda-medio);
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
+.footer-logo { width: 80px; margin-bottom: 10px; }
+
+.social-icons img {
+width: 30px;
+margin-right: 10px;
 }
 
-.project-name {
-  font-size: 2.8rem;
-  color: var(--lavanda-fuerte);
-  margin: 10px 0 20px 0;
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.8rem;
+  opacity: 0.8;
 }
 
-.btn-explore {
-  display: inline-block;
-  background-color
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .kyamo {
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .brand-name { margin-bottom: 10px; }
+
+  .main-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .social-icons { margin-top: 15px; }
+}
+
+/* --- Ajustes para el Hub de Empresa --- */
+main section {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-game:hover {
+    background-color: var(--lavanda-medio);
+    transform: scale(1.05);
+}
+
+/* Ajuste para que el submenú se vea mejor sobre el banner */
+.submenu li a:hover {
+    background-color: var(--lavanda-claro);
+}
