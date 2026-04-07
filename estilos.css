@@ -154,3 +154,23 @@ margin-right: 10px;
   
   .social-icons { margin-top: 15px; }
 }
+
+/* --- Ajustes para el Hub de Empresa --- */
+main section {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-game:hover {
+    background-color: var(--lavanda-medio);
+    transform: scale(1.05);
+}
+
+/* Ajuste para que el submenú se vea mejor sobre el banner */
+.submenu li a:hover {
+    background-color: var(--lavanda-claro);
+}
