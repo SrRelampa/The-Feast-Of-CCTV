@@ -4,7 +4,7 @@
   --lavanda-medio: #B38BC2;
   --lavanda-fuerte: #6A4E9C;
   --azul-lavanda: #A8C4E8;
-  --fondo: #F8F0FF;
+  --fondo: #F0E8F5; /* Tono lila más presente que el anterior */
   --blanco: #ffffff;
   --texto-oscuro: #2d3436;
 }
@@ -51,7 +51,6 @@ body {
   border-radius: 20px;
   transition: 0.3s;
   font-size: 0.9rem;
-  cursor: pointer;
 }
 .main-menu a:hover, .parent-title:hover { background-color: rgba(255, 255, 255, 0.2); }
 
@@ -74,11 +73,7 @@ body {
 .has-submenu:hover .submenu { display: block; }
 
 /* --- BANNER --- */
-.banner {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
+.banner { width: 100%; position: relative; overflow: hidden; }
 .banner-container { position: relative; line-height: 0; }
 .banner-img { width: 100%; height: auto; display: block; }
 
@@ -92,7 +87,6 @@ body {
   line-height: normal;
 }
 
-/* Efecto Glassmorphism en el texto del banner */
 .banner-text-content {
     background: rgba(0, 0, 0, 0.4); 
     padding: 30px;
@@ -105,18 +99,20 @@ body {
 .banner-text h1 { font-size: 3rem; margin: 0 0 10px 0; }
 .banner-text p { font-size: 1.3rem; font-weight: 300; margin: 0; }
 
-/* --- CUERPO PRINCIPAL --- */
+/* --- CUERPO PRINCIPAL (BLOQUES DE COLOR) --- */
 .main-content {
   padding: 80px 10%;
-  /* Cambiamos el blanco por un tono crema-lavanda muy suave */
-  background-color: #fdfaff; 
-  position: relative;
+  background: linear-gradient(180deg, #F0E8F5 0%, #FFFFFF 100%);
 }
 
-/* Sección Misión */
+/* Sección Misión como Tarjeta Blanca Flotante */
 .mission-section {
   text-align: center;
-  margin-bottom: 100px;
+  background: white;
+  padding: 60px 40px;
+  border-radius: 40px;
+  box-shadow: 0 20px 40px rgba(106, 78, 156, 0.05);
+  margin-bottom: 80px;
   animation: fadeIn 1s ease-out;
 }
 
@@ -124,19 +120,16 @@ body {
     color: var(--lavanda-fuerte);
     font-size: 2.8rem;
     font-weight: 800;
-    /* Un toque de sombra de color al texto */
     text-shadow: 2px 2px 0px var(--lavanda-claro);
 }
 
-
-/* Línea decorativa bajo el título */
 .section-title::after {
     content: '';
     display: block;
-    width: 50px;
+    width: 60px;
     height: 4px;
     background: var(--lavanda-medio);
-    margin: 10px auto;
+    margin: 15px auto;
     border-radius: 2px;
 }
 
@@ -148,7 +141,7 @@ body {
   margin: 0 auto;
 }
 
-/* Grid de Características */
+/* Grid de Características con Bordes de Color */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -157,97 +150,77 @@ body {
 }
 
 .feature-item {
-    background: var(--blanco);
+    background: #fdfbff;
     padding: 30px;
     border-radius: 20px;
-    /* Borde más presente */
     border: 2px solid var(--lavanda-claro); 
+    box-shadow: 0 10px 20px rgba(179, 139, 194, 0.15);
     transition: 0.3s ease;
 }
 
 .feature-item:hover {
     transform: translateY(-10px);
-    /* Al pasar el mouse, el borde se vuelve fuerte */
     border-color: var(--lavanda-fuerte); 
-    background-color: var(--fondo);
+    background-color: var(--blanco);
 }
 
-.feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    display: block;
-}
+.feature-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
 
-/* Sección Proyecto Destacado */
+/* Sección Proyecto Destacado (BLOQUE OSCURO CONTRASTADO) */
 .featured-project {
-  /* Un degradado suave que va del lavanda claro a un tono más cálido */
-  background: linear-gradient(135deg, #f3e8ff 0%, #fff0f5 100%);
-  padding: 50px;
-  border-radius: 30px;
-  box-shadow: 0 15px 40px rgba(106, 78, 156, 0.1);
-  border: 1px solid var(--lavanda-claro);
+  background: linear-gradient(135deg, var(--lavanda-fuerte) 0%, var(--lavanda-medio) 100%);
+  padding: 60px;
+  border-radius: 40px;
+  box-shadow: 0 15px 40px rgba(106, 78, 156, 0.3);
+  color: white; /* Cambiamos el texto a blanco para legibilidad */
 }
 
-.project-container {
-  display: flex;
-  align-items: center;
-  gap: 50px;
-  flex-wrap: wrap;
-}
+.project-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
 
-.project-info { flex: 1; min-width: 300px; }
-.subtitle {
-  color: var(--lavanda-medio);
+.project-info .subtitle {
+  color: var(--lavanda-claro); /* Resalta sobre el fondo oscuro */
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 0.9rem;
 }
 
 .project-name {
-    color: var(--lavanda-fuerte);
-    /* Gradiente en el texto (opcional, queda muy cool) */
-    background: linear-gradient(to right, var(--lavanda-fuerte), #ff8eb3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: white;
+    font-size: 2.8rem;
     font-weight: bold;
+    margin: 10px 0 20px 0;
+    -webkit-text-fill-color: white; /* Asegura que no sea transparente */
 }
+
+.project-info p { color: rgba(255, 255, 255, 0.9); line-height: 1.6; }
 
 .btn-explore {
   display: inline-block;
-  background-color: var(--lavanda-fuerte);
-  color: white;
+  background-color: white;
+  color: var(--lavanda-fuerte);
   padding: 15px 35px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(106, 78, 156, 0.3);
 }
 
 .btn-explore:hover {
-  background-color: var(--lavanda-medio);
+  background-color: var(--lavanda-claro);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(179, 139, 194, 0.4);
 }
 
 .project-image { flex: 1; text-align: center; }
 .floating-img {
   width: 100%;
   max-width: 280px;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
   animation: float 4s ease-in-out infinite;
 }
 
 /* --- Animaciones --- */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* --- Footer --- */
 .site-footer {
@@ -259,13 +232,8 @@ body {
 
 .footer-wrapper { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
 .footer-logo { width: 90px; margin-bottom: 15px; }
-.contact-info h4, .footer-column h4 { margin-bottom: 15px; letter-spacing: 1px; }
 
-.social-icons img {
-  width: 32px;
-  margin-right: 15px;
-  transition: transform 0.3s;
-}
+.social-icons img { width: 32px; margin-right: 15px; transition: transform 0.3s; }
 .social-icons img:hover { transform: translateY(-5px); }
 
 .footer-bottom {
@@ -282,11 +250,8 @@ body {
   .kyamo { flex-direction: column; padding: 15px; }
   .brand-name { margin-bottom: 15px; }
   .main-menu { flex-wrap: wrap; justify-content: center; }
-  
   .banner-text { left: 0; padding: 20px; text-align: center; width: 100%; }
   .banner-text h1 { font-size: 2rem; }
-  .banner-text p { font-size: 1rem; }
-  
   .project-container { flex-direction: column; text-align: center; }
   .project-name { font-size: 2.2rem; }
   .main-content { padding: 40px 5%; }
