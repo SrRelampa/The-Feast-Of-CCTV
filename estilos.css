@@ -19,73 +19,99 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Header / Navegación (LOGO ACTUALIZADO) --- */
+/* --- Header / Navegación (LOGO MAXIMIZADO) --- */
 .kyamo {
   background: linear-gradient(90deg, var(--lavanda-fuerte), var(--lavanda-medio));
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 5%; /* Reducido un poco el padding vertical para el logo más grande */
+  padding: 10px 5%; 
   box-shadow: 0 4px 15px rgba(106, 78, 156, 0.25);
   position: sticky;
   top: 0;
   z-index: 1000;
+  /* Altura mínima para que la barra sea estable */
+  min-height: 70px; 
 }
 
 .left { 
   display: flex; 
   align-items: center; 
-  gap: 15px; /* Espacio uniforme entre logo y texto */
+  gap: 20px; 
 }
 
-/* Subimos el tamaño del logo para que luzca la resolución 2000x2000 */
 .logo { 
-  width: 70px; /* Antes era 45px, ahora es casi el doble */
+  /* Aumentamos el tamaño visual a 100px */
+  width: 100px; 
   height: auto; 
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
-  transition: transform 0.3s ease;
+  
+  /* Efecto de desborde: el logo puede sobresalir un poquito */
+  margin-top: 5px;
+  margin-bottom: -15px; 
+  
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1001;
 }
 
 .logo:hover {
-  transform: scale(1.08); /* Pequeño efecto al pasar el mouse */
+  transform: scale(1.15) rotate(5deg); /* Animación más dinámica */
 }
 
 .brand-name {
   color: white;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 1.4rem; /* Un poco más grande para equilibrar el logo */
+  letter-spacing: 3px;
+  font-size: 1.6rem; 
+  font-weight: 900;
   margin: 0;
+  /* Sutil sombra para que combine con el logo grande */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-.main-menu { list-style: none; display: flex; gap: 10px; margin: 0; padding: 0; }
+.main-menu { list-style: none; display: flex; gap: 15px; margin: 0; padding: 0; }
+
 .main-menu a, .parent-title {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 20px;
+  padding: 10px 16px;
+  border-radius: 25px;
   transition: 0.3s;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
-.main-menu a:hover, .parent-title:hover { background-color: rgba(255, 255, 255, 0.2); }
 
-/* Submenú */
+.main-menu a:hover, .parent-title:hover { 
+  background-color: rgba(255, 255, 255, 0.25); 
+}
+
+/* --- Ajuste del Submenú para el nuevo tamaño --- */
 .has-submenu { position: relative; }
 .submenu {
   display: none;
   position: absolute;
   background-color: white;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   list-style: none;
-  top: 100%;
+  top: 110%; /* Un poco más de separación */
   left: 0;
-  min-width: 160px;
+  min-width: 180px;
 }
-.submenu li a { color: var(--lavanda-fuerte); display: block; padding: 10px; text-decoration: none; }
-.submenu li a:hover { background-color: var(--lavanda-claro); border-radius: 5px; }
+
+.submenu li a { 
+  color: var(--lavanda-fuerte); 
+  display: block; 
+  padding: 10px; 
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.submenu li a:hover { 
+  background-color: var(--lavanda-claro); 
+}
+
 .has-submenu:hover .submenu { display: block; }
 
 /* --- BANNER --- */
