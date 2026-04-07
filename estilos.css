@@ -1,304 +1,127 @@
-/* ====================== VARIABLES Y PALETA ====================== */
-:root {
-  --lavanda-claro: #E6D4E8;
-  --lavanda-medio: #B38BC2;
-  --lavanda-fuerte: #6A4E9C;
-  --azul-lavanda: #A8C4E8;
-  --fondo: #F0E8F5; 
-  --blanco: #ffffff;
-  --texto-oscuro: #2d3436;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCTV Corporation | Inicio</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
 
-/* --- General --- */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--fondo);
-  color: var(--texto-oscuro);
-  overflow-x: hidden;
-}
+  <header class="kyamo">
+    <div class="left">
+      <img src="Img/Logo_Empresa.png" class="logo" alt="Logo CCTV Studios">
+      <h2 class="brand-name">CCTV Corporation</h2>
+    </div>
 
-/* --- Header / Navegación (LOGO MAXIMIZADO) --- */
-.kyamo {
-  background: linear-gradient(90deg, var(--lavanda-fuerte), var(--lavanda-medio));
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 5%; 
-  box-shadow: 0 4px 15px rgba(106, 78, 156, 0.25);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  /* Altura mínima para que la barra sea estable */
-  min-height: 70px; 
-}
+    <nav>
+      <ul class="main-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="has-submenu">
+          <span class="parent-title">El Juego</span>
+          <ul class="submenu">
+            <li><a href="comojugar.html">Información</a></li>
+            <li><a href="Personajes.html">Personajes</a></li>
+            <li><a href="powerups.html">Cosas Futuras</a></li>
+          </ul>
+        </li>
+        <li><a href="Registro.html">Registro</a></li>
+      </ul>
+    </nav>
+  </header>
 
-.left { 
-  display: flex; 
-  align-items: center; 
-  gap: 20px; 
-}
+  <section class="banner">
+      <div class="banner-container">
+          <img src="Img/Banner.jpg" class="banner-img" alt="Banner Principal">
+          <div class="banner-text">
+              <div class="banner-text-content">
+                  <h1>CCTV Studios</h1>
+                  <p>Innovando en el género Battle Royale con experiencias carismáticas y competitivas.</p>
+              </div>
+          </div>
+      </div>
+  </section>
 
-.logo { 
-  /* Aumentamos el tamaño visual a 100px */
-  width: 100px; 
-  height: auto; 
-  
-  /* Efecto de desborde: el logo puede sobresalir un poquito */
-  margin-top: 5px;
-  margin-bottom: -15px; 
-  
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 1001;
-}
+  <main class="main-content">
+      
+      <section id="about" class="mission-section">
+          <h2 class="section-title">Nuestra Misión</h2>
+          <p class="mission-text">
+              En <strong>CCTV Corporation</strong> nos esforzamos por dar una experiencia agradable. 
+              Somos un equipo dedicado a pulir cada detalle mecánico y visual para que disfruten 
+              al máximo esta nueva experiencia multijugador.
+          </p>
 
-.logo:hover {
-  transform: scale(1.15) rotate(5deg); /* Animación más dinámica */
-}
+          <div class="features-grid">
+              <div class="feature-item">
+                  <span class="feature-icon">🎮</span>
+                  <h3>Jugabilidad</h3>
+                  <p>Mecánicas fluidas diseñadas para la alta competencia.</p>
+              </div>
+              <div class="feature-item">
+                  <span class="feature-icon">🎨</span>
+                  <h3>Arte Único</h3>
+                  <p>Estilo visual vibrante que destaca en cada batalla.</p>
+              </div>
+              <div class="feature-item">
+                  <span class="feature-icon">🛡️</span>
+                  <h3>Comunidad</h3>
+                  <p>Un entorno seguro y divertido para todos los jugadores.</p>
+              </div>
+          </div>
+      </section>
 
-.brand-name {
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 1.6rem; 
-  font-weight: 900;
-  margin: 0;
-  /* Sutil sombra para que combine con el logo grande */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-}
+      <section id="proyecto-estrella" class="featured-project">
+          <div class="project-container">
+              <div class="project-info">
+                  <span class="subtitle">PROYECTO DESTACADO</span>
+                  <h2 class="project-name">The Feast Of CCTV</h2>
+                  <p>
+                      Un gran batallón de comida que aún conserva "humanidad" en sus corazones se enfrenta 
+                      en una batalla por la supervivencia. Con mecánicas únicas y un sistema de trofeos competitivo.
+                  </p>
+                  <a href="comojugar.html" class="btn-explore">Explorar el Juego</a>
+              </div>
 
-.main-menu { list-style: none; display: flex; gap: 15px; margin: 0; padding: 0; }
+              <div class="project-image-wrapper">
+                  <div class="game-slider">
+                      <img src="Img/Captura1.jpg" class="slide" alt="Gameplay 1">
+                      <img src="Img/Captura2.jpg" class="slide" alt="Gameplay 2">
+                      <img src="Img/Captura3.jpg" class="slide" alt="Gameplay 3">
+                  </div>
+                  <img src="Img/Logo-Juego.png" alt="Game Logo" class="floating-game-logo">
+              </div>
+          </div>
+      </section>
 
-.main-menu a, .parent-title {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px 16px;
-  border-radius: 25px;
-  transition: 0.3s;
-  font-size: 1rem;
-}
+  </main>
 
-.main-menu a:hover, .parent-title:hover { 
-  background-color: rgba(255, 255, 255, 0.25); 
-}
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+      <div class="footer-column left">
+        <img src="Img/Logo_Empresa.png" alt="CCTV Studios" class="footer-logo">         
+        <div class="contact-info">
+          <h4>CONTACTO EMPRESARIAL</h4>
+          <p><span class="icon">📞</span> 6692239261</p>
+          <p><span class="icon">✉️</span> contacto@thefeastofcctv.com</p>
+        </div>
+      </div>
 
-/* --- Ajuste del Submenú para el nuevo tamaño --- */
-.has-submenu { position: relative; }
-.submenu {
-  display: none;
-  position: absolute;
-  background-color: white;
-  padding: 12px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  list-style: none;
-  top: 110%; /* Un poco más de separación */
-  left: 0;
-  min-width: 180px;
-}
+      <div class="footer-column right">
+        <h4>REDES SOCIALES</h4>
+        <div class="social-icons">
+          <a href="https://x.com" target="_blank"><img src="Img/Social/X-Twitter.png" alt="X"></a>
+          <a href="https://instagram.com/" target="_blank"><img src="Img/Social/Instagram.png" alt="Instagram"></a>
+          <a href="https://tiktok.com/" target="_blank"><img src="Img/Social/TikTok.png" alt="TikTok"></a>
+          <a href="https://youtube.com/" target="_blank"><img src="Img/Social/YouTube.png" alt="YouTube"></a>
+        </div>
+      </div>
+    </div>
 
-.submenu li a { 
-  color: var(--lavanda-fuerte); 
-  display: block; 
-  padding: 10px; 
-  text-decoration: none;
-  border-radius: 8px;
-}
+    <div class="footer-bottom">
+      © 2026 CCTV Corporation | Desarrollado con imaginación 
+    </div>
+  </footer>
 
-.submenu li a:hover { 
-  background-color: var(--lavanda-claro); 
-}
-
-.has-submenu:hover .submenu { display: block; }
-
-/* --- BANNER --- */
-.banner { width: 100%; position: relative; overflow: hidden; }
-.banner-container { position: relative; line-height: 0; }
-.banner-img { width: 100%; height: auto; display: block; }
-
-.banner-text {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  transform: translateY(-50%);
-  color: white;
-  max-width: 550px;
-  line-height: normal;
-}
-
-.banner-text-content {
-    background: rgba(0, 0, 0, 0.4); 
-    padding: 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(8px); 
-    border-left: 6px solid var(--lavanda-medio);
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-}
-
-.banner-text h1 { font-size: 3rem; margin: 0 0 10px 0; }
-.banner-text p { font-size: 1.3rem; font-weight: 300; margin: 0; }
-
-/* --- CUERPO PRINCIPAL --- */
-.main-content {
-  padding: 80px 10%;
-  background: linear-gradient(180deg, #F0E8F5 0%, #FFFFFF 100%);
-}
-
-.mission-section {
-  text-align: center;
-  background: white;
-  padding: 60px 40px;
-  border-radius: 40px;
-  box-shadow: 0 20px 40px rgba(106, 78, 156, 0.05);
-  margin-bottom: 80px;
-  animation: fadeIn 1s ease-out;
-}
-
-.section-title {
-    color: var(--lavanda-fuerte);
-    font-size: 2.8rem;
-    font-weight: 800;
-    text-shadow: 2px 2px 0px var(--lavanda-claro);
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--lavanda-medio);
-    margin: 15px auto;
-    border-radius: 2px;
-}
-
-.mission-text {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: #555;
-  max-width: 850px;
-  margin: 0 auto;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
-    margin-top: 50px;
-}
-
-.feature-item {
-    background: #fdfbff;
-    padding: 30px;
-    border-radius: 20px;
-    border: 2px solid var(--lavanda-claro); 
-    box-shadow: 0 10px 20px rgba(179, 139, 194, 0.15);
-    transition: 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-10px);
-    border-color: var(--lavanda-fuerte); 
-    background-color: var(--blanco);
-}
-
-.feature-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
-
-/* Sección Proyecto Destacado */
-.featured-project {
-  background: linear-gradient(135deg, var(--lavanda-fuerte) 0%, var(--lavanda-medio) 100%);
-  padding: 60px;
-  border-radius: 40px;
-  box-shadow: 0 15px 40px rgba(106, 78, 156, 0.3);
-  color: white;
-}
-
-.project-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-
-.project-info .subtitle {
-  color: var(--lavanda-claro);
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-}
-
-.project-name {
-    color: white;
-    font-size: 2.8rem;
-    font-weight: bold;
-    margin: 10px 0 20px 0;
-    -webkit-text-fill-color: white;
-}
-
-.project-info p { color: rgba(255, 255, 255, 0.9); line-height: 1.6; }
-
-.btn-explore {
-  display: inline-block;
-  background-color: white;
-  color: var(--lavanda-fuerte);
-  padding: 15px 35px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.btn-explore:hover {
-  background-color: var(--lavanda-claro);
-  transform: translateY(-3px) scale(1.05);
-}
-
-.project-image { flex: 1; text-align: center; }
-.floating-img {
-  width: 100%;
-  max-width: 350px; /* Logo del juego también un poco más grande */
-  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
-  animation: float 4s ease-in-out infinite;
-}
-
-/* --- Animaciones --- */
-@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-/* --- Footer (LOGO ACTUALIZADO) --- */
-.site-footer {
-  background-color: var(--lavanda-fuerte);
-  color: white;
-  padding: 60px 5% 20px;
-  border-top: 5px solid var(--azul-lavanda);
-}
-
-.footer-wrapper { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
-
-/* El logo del footer ahora es mucho más imponente */
-.footer-logo { 
-  width: 140px; 
-  height: auto; 
-  margin-bottom: 20px; 
-  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
-}
-
-.social-icons img { width: 32px; margin-right: 15px; transition: transform 0.3s; }
-.social-icons img:hover { transform: translateY(-5px); }
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  font-size: 0.85rem;
-  opacity: 0.8;
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .kyamo { padding: 15px; }
-  .logo { width: 60px; } /* Ajuste móvil */
-  .brand-name { font-size: 1.1rem; }
-  .main-menu { justify-content: center; margin-top: 10px; }
-  .banner-text { left: 0; padding: 20px; text-align: center; width: 100%; }
-  .project-container { flex-direction: column; text-align: center; }
-  .main-content { padding: 40px 5%; }
-}
+</body>
+</html>
