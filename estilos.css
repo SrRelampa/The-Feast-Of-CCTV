@@ -108,7 +108,9 @@ body {
 /* --- CUERPO PRINCIPAL --- */
 .main-content {
   padding: 80px 10%;
-  background-color: var(--blanco);
+  /* Cambiamos el blanco por un tono crema-lavanda muy suave */
+  background-color: #fdfaff; 
+  position: relative;
 }
 
 /* Sección Misión */
@@ -119,10 +121,13 @@ body {
 }
 
 .section-title {
-  color: var(--lavanda-fuerte);
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+    color: var(--lavanda-fuerte);
+    font-size: 2.8rem;
+    font-weight: 800;
+    /* Un toque de sombra de color al texto */
+    text-shadow: 2px 2px 0px var(--lavanda-claro);
 }
+
 
 /* Línea decorativa bajo el título */
 .section-title::after {
@@ -152,18 +157,19 @@ body {
 }
 
 .feature-item {
-    background: #fff;
+    background: var(--blanco);
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(106, 78, 156, 0.05);
+    /* Borde más presente */
+    border: 2px solid var(--lavanda-claro); 
     transition: 0.3s ease;
-    border: 1px solid var(--lavanda-claro);
 }
 
 .feature-item:hover {
     transform: translateY(-10px);
-    border-color: var(--lavanda-medio);
-    box-shadow: 0 15px 35px rgba(106, 78, 156, 0.15);
+    /* Al pasar el mouse, el borde se vuelve fuerte */
+    border-color: var(--lavanda-fuerte); 
+    background-color: var(--fondo);
 }
 
 .feature-icon {
@@ -174,10 +180,12 @@ body {
 
 /* Sección Proyecto Destacado */
 .featured-project {
-  background-color: #fcfaff;
+  /* Un degradado suave que va del lavanda claro a un tono más cálido */
+  background: linear-gradient(135deg, #f3e8ff 0%, #fff0f5 100%);
   padding: 50px;
   border-radius: 30px;
-  box-shadow: 0 15px 40px rgba(179, 139, 194, 0.1);
+  box-shadow: 0 15px 40px rgba(106, 78, 156, 0.1);
+  border: 1px solid var(--lavanda-claro);
 }
 
 .project-container {
@@ -196,9 +204,12 @@ body {
 }
 
 .project-name {
-  font-size: 2.8rem;
-  color: var(--lavanda-fuerte);
-  margin: 10px 0 20px 0;
+    color: var(--lavanda-fuerte);
+    /* Gradiente en el texto (opcional, queda muy cool) */
+    background: linear-gradient(to right, var(--lavanda-fuerte), #ff8eb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
 }
 
 .btn-explore {
