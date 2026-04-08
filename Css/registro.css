@@ -1,0 +1,129 @@
+/* --- ESTILOS REGISTRO THE FEAST --- */
+:root {
+    --neon-purple: #a27cff;
+    --neon-pink: #ff00ff;
+    --deep-bg: #0f0f1a;
+    --input-bg: rgba(255, 255, 255, 0.05);
+}
+
+.content-wrapper {
+    padding: 60px 5%;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.contenedor-registro {
+    background-color: #161625;
+    border-radius: 25px;
+    padding: 45px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(162, 124, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de resplandor superior */
+.contenedor-registro::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+}
+
+.header-registro {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.mini-logo {
+    width: 70px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px var(--neon-purple));
+}
+
+.header-registro h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.header-registro .subtitle {
+    color: var(--neon-purple);
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.campo {
+    margin-bottom: 25px;
+}
+
+.campo label {
+    display: block;
+    color: #eee;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 14px;
+    background: var(--input-bg);
+    border: 1px solid rgba(162, 124, 255, 0.3);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: var(--neon-purple);
+    background: rgba(162, 124, 255, 0.1);
+    box-shadow: 0 0 15px rgba(162, 124, 255, 0.2);
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.boton-enviar {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.4s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.boton-enviar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 0, 255, 0.4);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
