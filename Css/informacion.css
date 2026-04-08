@@ -19,7 +19,7 @@
     overflow-x: hidden;
 }
 
-/* ANIMACIONES (fadeIn, float, shine, pulseIcon) */
+/* --- ANIMACIONES --- */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
@@ -27,10 +27,6 @@
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
-}
-@keyframes pulseIcon {
-    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px currentColor); }
-    50% { transform: scale(1.1); filter: drop-shadow(0 0 20px currentColor); }
 }
 @keyframes shine {
     0% { left: -100%; }
@@ -48,10 +44,11 @@
     text-align: center;
     background: radial-gradient(circle at center, rgba(162, 124, 255, 0.15) 0%, transparent 70%);
     animation: fadeInUp 0.8s ease-out forwards;
+    padding: 0 5%;
 }
 
 .glitch-text {
-    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 900;
     background: linear-gradient(to bottom, #fff, var(--neon-purple));
     -webkit-background-clip: text;
@@ -59,29 +56,55 @@
     margin-bottom: 20px;
 }
 
-/* --- SECCIÓN DE MODOS (AJUSTE DE TÍTULO) --- */
-.section-title {
-    font-size: 1.8rem;
-    margin-top: 80px; /* <--- Esto separa "MODOS DE JUEGO" del Hero */
-    margin-bottom: 30px; /* <--- Esto lo separa de las tarjetas */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.9;
+/* CIRCULITOS (BADGES) */
+.hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
+.badge {
+    background: rgba(162, 124, 255, 0.1);
+    border: 1px solid var(--neon-purple);
+    color: var(--neon-purple);
+    padding: 6px 20px;
+    border-radius: 100px; /* Forma de óvalo/círculo */
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(162, 124, 255, 0.2);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 700px;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* --- MODOS DE JUEGO (BENTO) --- */
 .main-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 5% 100px;
 }
 
-/* --- BENTO GRID --- */
+.section-label {
+    font-size: 1.8rem;
+    margin: 80px 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: left;
+}
+
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 220px);
     gap: 20px;
-    animation: fadeInUp 1s ease-out 0.3s backwards;
 }
 
 .bento-card {
@@ -90,59 +113,35 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: 0.4s;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.bento-card::before {
-    content: '';
-    position: absolute;
-    top: 0; width: 50%; height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
-    transform: skewX(-25deg);
-    animation: shine 6s infinite;
-}
-
-/* --- SUPERVIVENCIA: TEXTO AL MEDIO --- */
+/* Tarjeta Grande Supervivencia */
 .bento-card.big {
     grid-column: span 2;
     grid-row: span 2;
-    background: linear-gradient(45deg, rgba(162,124,255,0.25), rgba(255,0,255,0.1));
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* <--- CAMBIO: Ahora el texto está en el medio vertical */
-    align-items: flex-start;    
-    padding: 50px; 
+    background: linear-gradient(45deg, rgba(162,124,255,0.2), rgba(255,0,255,0.05));
+    justify-content: center; /* Alineado al medio vertical */
+    align-items: flex-start;
+    padding: 50px;
     text-align: left;
 }
 
-.bento-card.big h3 {
-    font-size: 2.8rem;
-    margin-bottom: 15px;
-    text-shadow: 0 0 20px rgba(162, 124, 255, 0.5);
-}
+.bento-card.big h3 { font-size: 2.8rem; margin-bottom: 15px; color: #fff; }
+.bento-card.big p { font-size: 1.1rem; opacity: 0.8; }
 
-.bento-card.big p {
-    font-size: 1.2rem;
-    max-width: 90%;
-    opacity: 0.9;
-}
-
-.bento-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: var(--neon-purple);
-    box-shadow: 0 15px 35px rgba(162, 124, 255, 0.2);
-}
+.bento-card.small h4 { font-size: 1.4rem; z-index: 2; }
 
 .mode-tag {
     position: absolute;
-    top: 25px;
-    right: 25px;
-    font-size: 0.75rem;
+    top: 20px; right: 20px;
+    font-size: 0.7rem;
     color: var(--neon-purple);
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 /* --- MECÁNICAS --- */
@@ -162,20 +161,42 @@
     animation: float 6s ease-in-out infinite;
 }
 
-.mech-icon {
-    font-size: 3.8rem;
-    margin-bottom: 20px;
-    display: block;
-    animation: pulseIcon 3s infinite ease-in-out;
-}
-
+.mech-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
 .energy { color: #ffd700; }
 .trophie { color: #4facfe; }
 .ulti { color: var(--neon-pink); }
 
-/* --- RESPONSIVE --- */
+/* --- BANNER Y TEAM FOOTER --- */
+.rotation-banner {
+    background: linear-gradient(90deg, #1a1a2e, #2d1b4d);
+    padding: 60px 40px;
+    border-radius: 40px;
+    text-align: center;
+    border: 1px solid rgba(162, 124, 255, 0.2);
+    margin: 100px 0 40px;
+}
+
+.rotation-banner h2 { margin-bottom: 15px; letter-spacing: 2px; }
+
+.team-footer {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.footer-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 40px;
+    border-radius: 30px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-card p { font-style: italic; color: #bbb; margin-bottom: 15px; }
+.brand-signature { color: var(--neon-purple); font-weight: 800; letter-spacing: 1px; }
+
+/* RESPONSIVE */
 @media (max-width: 900px) {
     .bento-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .bento-card.big { height: 400px; padding: 30px; }
+    .bento-card.big { grid-column: span 2; height: 350px; }
     .mechanics-section { grid-template-columns: 1fr; }
 }
