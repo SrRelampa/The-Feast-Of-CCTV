@@ -296,25 +296,26 @@ body {
 
   /* Arreglo del Banner para que luzca la imagen */
   .banner-text {
-    position: relative; /* Ya no flota sobre la imagen, se pone debajo o ajustado */
-    top: 0;
-    transform: none;
-    padding: 15px;
-    width: 90%;
-    margin: -20px auto 0; /* Sube un poquito para entrar en la imagen */
+    top: 50%;         /* Lo mantenemos centrado verticalmente */
+    left: 5%;         /* Pegado a la izquierda */
+    max-width: 200px; /* Lo hacemos muy estrecho para que no tape el centro */
+    transform: translateY(-50%);
   }
 
+  /* Esto controla el cuadro y las letras */
   .banner-text-content {
-    padding: 15px;
-    border-radius: 15px;
+    padding: 8px 12px; /* Super pequeño */
+    background: rgba(0, 0, 0, 0.5); /* Fondo suave */
   }
 
   .banner-text h1 {
-    font-size: 1.5rem; /* Título más acorde al cel */
+    font-size: 1.1rem; /* Título miniatura */
+    margin: 0;
   }
 
   .banner-text p {
-    font-size: 0.9rem;
+    font-size: 0.7rem; /* Texto de apoyo muy pequeño */
+    line-height: 1.1;
   }
 }
 
