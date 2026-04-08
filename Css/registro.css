@@ -3,79 +3,94 @@
     --lavanda-fuerte: #6a4e9c;
     --lavanda-medio: #a27cff;
     --lavanda-claro: #f4f0ff;
-    --texto: #2d3436;
+    --texto-oscuro: #2d3436;
+}
+
+/* El fondo de la página sigue siendo el de la captura (morado claro) */
+.gameplay-page {
+    background-color: #d1c4e9; /* Color lavanda claro para el fondo general */
 }
 
 .content-wrapper {
-    padding: 40px 5%;
-    max-width: 600px;
+    padding: 60px 5%;
+    max-width: 550px;
     margin: 0 auto;
 }
 
+/* PANEL CENTRAL EN COLORES CLAROS */
 .contenedor-registro {
-    background-color: white;
-    border-radius: 20px;
+    background-color: #ffffff; /* Tarjeta Blanca */
+    border-radius: 25px;
     padding: 40px;
-    box-shadow: 0 10px 30px rgba(106, 78, 156, 0.1); /* Sombra suave */
-    border-top: 6px solid var(--lavanda-fuerte);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-top: 8px solid var(--lavanda-fuerte);
+    text-align: center;
 }
 
-.header-registro {
-    text-align: center;
-    margin-bottom: 30px;
+.mini-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
 }
 
 .header-registro h1 {
     color: var(--lavanda-fuerte);
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
 }
 
 .header-registro .subtitle {
     color: var(--lavanda-medio);
+    font-weight: 500;
+    margin-bottom: 25px;
 }
 
+/* CAMPOS DE FORMULARIO */
 .campo {
+    text-align: left;
     margin-bottom: 20px;
 }
 
 .campo label {
     display: block;
-    color: var(--texto);
-    font-weight: 600;
+    color: var(--texto-oscuro);
+    font-weight: 700;
     margin-bottom: 8px;
+    font-size: 0.9rem;
 }
 
 .campo input, .campo select {
     width: 100%;
     padding: 12px;
     border: 2px solid var(--lavanda-claro);
-    border-radius: 8px;
-    background: #fff;
-    color: var(--texto);
+    border-radius: 10px;
+    background: #fdfbff;
+    color: var(--texto-oscuro);
+    font-family: inherit;
 }
 
-/* --- SOLUCIÓN DE ALINEACIÓN DE CHECKBOXES --- */
+/* --- ALINEACIÓN PERFECTA DE SELECCIÓN --- */
 .checkbox-group {
     display: flex;
-    justify-content: space-around; /* Los separa equitativamente */
+    justify-content: space-between;
     background: var(--lavanda-claro);
     padding: 15px;
-    border-radius: 10px;
-    flex-wrap: wrap; /* Por si el móvil es muy pequeño */
+    border-radius: 12px;
 }
 
 .checkbox-item {
     display: flex;
-    align-items: center; /* Alinea el cuadro con el texto verticalmente */
-    gap: 10px; /* Espacio entre el cuadro y la palabra */
+    align-items: center; /* Alinea el cuadro con el texto */
+    gap: 8px;
+    color: var(--texto-oscuro);
+    font-weight: 600;
     cursor: pointer;
-    color: var(--texto);
-    font-size: 0.95rem;
 }
 
 .checkbox-item input {
-    width: 18px; /* Tamaño fijo para que no se deforme */
+    width: 18px;
     height: 18px;
+    margin: 0;
     cursor: pointer;
 }
 
@@ -87,12 +102,14 @@
     border: none;
     border-radius: 50px;
     font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
     transition: 0.3s;
     text-transform: uppercase;
+    margin-top: 15px;
 }
 
 .boton-enviar:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(106, 78, 156, 0.3);
+    box-shadow: 0 8px 20px rgba(106, 78, 156, 0.3);
 }
