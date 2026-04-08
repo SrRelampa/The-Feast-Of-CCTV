@@ -258,7 +258,7 @@ body {
 }
 
 
-/* ====================== MODO MÓVIL DEFINITIVO (CORREGIDO) ====================== */
+/* ====================== MODO MÓVIL DEFINITIVO (TOTAL) ====================== */
 @media (max-width: 768px) {
   
   /* 1. Header compacto */
@@ -267,30 +267,11 @@ body {
     flex-direction: column; 
     gap: 5px;
   }
-
-  .left {
-    flex-direction: row; 
-    gap: 10px;
-  }
-
-  .logo {
-    width: 45px; 
-    margin: 0;
-  }
-
-  .brand-name {
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-  }
-
-  .main-menu {
-    gap: 5px;
-  }
-  
-  .main-menu a, .parent-title {
-    font-size: 0.8rem;
-    padding: 5px 10px;
-  }
+  .left { flex-direction: row; gap: 10px; }
+  .logo { width: 45px; margin: 0; }
+  .brand-name { font-size: 1.1rem; letter-spacing: 1px; }
+  .main-menu { gap: 5px; }
+  .main-menu a, .parent-title { font-size: 0.8rem; padding: 5px 10px; }
 
   /* 2. Banner: Texto miniatura */
   .banner-text {
@@ -300,70 +281,69 @@ body {
     transform: translateY(-50%);
     position: absolute; 
   }
-
   .banner-text-content {
     padding: 8px 12px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
   }
-
   .banner-text h1 { font-size: 1rem; margin: 0; }
   .banner-text p { font-size: 0.65rem; line-height: 1.1; }
 
   /* 3. Contenido principal */
-  .main-content {
-    padding: 30px 5%;
-  }
-
+  .main-content { padding: 30px 5%; }
   .section-title { font-size: 1.8rem; }
+  .features-grid { grid-template-columns: 1fr; gap: 15px; }
 
-  .features-grid {
-    grid-template-columns: 1fr; 
-    gap: 15px;
-  }
-
-  /* 4. TARJETA DEL JUEGO (MEJORADA) */
+  /* 4. TARJETA DEL JUEGO (ARREGLO DE TEXTO Y ESPACIOS) */
   .featured-project {
-    padding: 45px 25px; /* Más espacio interno para que el texto respire */
+    padding: 40px 20px !important; /* Forzamos espacio interno */
     border-radius: 35px;
+    margin: 0 10px; /* Evita que la tarjeta toque los bordes del cel */
   }
 
-  .project-container {
+  .project-info {
+    width: 100%;
+    display: flex;
     flex-direction: column;
-    gap: 30px; /* Más espacio entre el botón y la imagen */
-    text-align: center;
+    align-items: center; /* Centra títulos, párrafos y botones */
   }
 
   .project-name {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
+    text-align: center;
   }
 
   .project-info p {
-    font-size: 0.95rem;
-    line-height: 1.6; /* Texto más separado para leer mejor */
-    margin-bottom: 25px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 92%; /* EL TRUCO: evita que el texto toque los bordes */
+    margin: 0 auto 25px auto; 
+    text-align: center;
   }
 
+  /* 5. EL LOGO (LA MANZANA) */
   .project-image-wrapper {
-    min-height: 260px; /* Un poco más de altura para la manzana */
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Separa la manzana del botón de arriba */
     width: 100%;
   }
 
   .floating-game-logo {
-    max-width: 270px; /* Manzana más grande como pediste */
+    width: 85%; /* Se adapta al ancho del dispositivo */
+    max-width: 260px; /* Tamaño máximo para que no se vea gigante */
+    height: auto;
     filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
   }
 
-  /* 5. Footer móvil */
+  /* 6. Footer móvil */
   .footer-wrapper {
     flex-direction: column;
     text-align: center;
     gap: 25px;
   }
-
-  .footer-logo {
-    width: 80px;
-    margin: 0 auto;
-  }
+  .footer-logo { width: 80px; margin: 0 auto; }
 }
