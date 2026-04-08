@@ -17,63 +17,76 @@
     color: white;
     font-family: 'Segoe UI', system-ui, sans-serif;
     overflow-x: hidden;
-    line-height: 1.6;
+}
+
+/* --- KEYFRAMES (ANIMACIONES) --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes pulseIcon {
+    0% { transform: scale(1); filter: drop-shadow(0 0 5px currentColor); }
+    50% { transform: scale(1.1); filter: drop-shadow(0 0 20px currentColor); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 5px currentColor); }
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
 }
 
 /* --- HERO SECTION --- */
 .gameplay-hero {
-    height: 80vh;
+    height: 85vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     background: radial-gradient(circle at center, rgba(162, 124, 255, 0.15) 0%, transparent 70%);
-    position: relative;
-    padding: 20px;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .glitch-text {
-    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-size: clamp(3.5rem, 10vw, 6.5rem);
     font-weight: 900;
-    letter-spacing: -2px;
-    line-height: 1;
     background: linear-gradient(to bottom, #fff, var(--neon-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    opacity: 0.7;
-    max-width: 650px;
-    margin: 0 auto 30px;
+    letter-spacing: -3px;
 }
 
 .badge {
-    background: rgba(162, 124, 255, 0.2);
-    padding: 10px 25px;
-    border-radius: 100px;
-    border: 1px solid var(--neon-purple);
-    margin: 5px;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
+    animation: fadeInUp 1s ease-out backwards;
+    display: inline-block;
 }
 
-/* --- BENTO GRID SECCIÓN --- */
+/* Retraso en las medallas */
+.badge:nth-child(1) { animation-delay: 0.2s; }
+.badge:nth-child(2) { animation-delay: 0.4s; }
+.badge:nth-child(3) { animation-delay: 0.6s; }
+
+/* --- BENTO GRID --- */
 .main-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 5% 100px;
+    padding: 40px 5% 100px;
 }
 
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 220px);
+    grid-template-rows: repeat(2, 230px);
     gap: 20px;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
 }
 
 .bento-card {
@@ -82,59 +95,41 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
-/* --- AJUSTE MAESTRO SUPERVIVENCIA --- */
+/* Efecto Brillo (Shine) que pasa cada 5 segundos */
+.bento-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+    transform: skewX(-25deg);
+    animation: shine 6s infinite;
+}
+
+/* SUPERVIVENCIA (Texto más arriba aún) */
 .bento-card.big {
     grid-column: span 2;
     grid-row: span 2;
-    background: linear-gradient(45deg, rgba(162,124,255,0.2), rgba(255,0,255,0.1));
-    
-    display: flex;
-    flex-direction: column;
+    background: linear-gradient(45deg, rgba(162,124,255,0.25), rgba(255,0,255,0.1));
     justify-content: flex-end; 
     align-items: flex-start;    
-    
-    /* Subimos el padding inferior a 100px para que el texto no esté abajo del todo */
-    padding: 40px 40px 100px 40px; 
+    padding: 40px 40px 160px 40px; /* Subido a 160px para que quede bien arriba */
     text-align: left;
-}
-
-.bento-card.big h3 {
-    font-size: 2.5rem;
-    margin: 0 0 10px 0;
-    color: #fff;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
-
-.bento-card.big p {
-    font-size: 1.15rem;
-    line-height: 1.4;
-    margin: 0;
-    opacity: 0.85;
-    max-width: 450px;
+    display: flex;
+    flex-direction: column;
 }
 
 .bento-card:hover {
-    transform: scale(1.02);
+    transform: translateY(-10px) scale(1.02);
     border-color: var(--neon-purple);
-    box-shadow: 0 0 30px rgba(162, 124, 255, 0.2);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.mode-tag {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    font-size: 0.75rem;
-    color: var(--neon-purple);
-    font-weight: bold;
-    text-transform: uppercase;
+    box-shadow: 0 15px 35px rgba(162, 124, 255, 0.2);
 }
 
 /* --- MECHANICS SECTION --- */
@@ -142,95 +137,60 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin: 80px 0;
+    margin: 100px 0;
 }
 
 .mechanic-card {
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 40px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     text-align: center;
-    transition: 0.3s;
+    transition: 0.4s;
+    animation: float 6s ease-in-out infinite;
 }
 
-.mechanic-card:hover {
-    background: rgba(255, 255, 255, 0.06);
-    transform: translateY(-10px);
-}
+.mechanic-card:nth-child(2) { animation-delay: 1s; }
+.mechanic-card:nth-child(3) { animation-delay: 2s; }
 
 .mech-icon {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     margin-bottom: 20px;
     display: block;
-    filter: drop-shadow(0 0 10px currentColor);
+    animation: pulseIcon 3s infinite ease-in-out;
 }
 
 .energy { color: #ffd700; }
 .trophie { color: #4facfe; }
-.ulti { color: var(--neon-pink); }
+.ulti { color: var(--neon-pink); animation-delay: 0.5s; }
 
-/* --- BANNER ROTATION --- */
+/* --- MUNDO DINÁMICO --- */
 .rotation-banner {
-    background: linear-gradient(90deg, #1a1a2e, #2d1b4d);
-    padding: 70px 40px;
-    border-radius: 40px;
+    background: linear-gradient(135deg, #1a1a2e, #2d1b4d);
+    padding: 80px 40px;
+    border-radius: 50px;
     text-align: center;
     border: 1px solid rgba(162, 124, 255, 0.3);
-    margin-bottom: 80px;
+    transition: 0.5s;
 }
 
-.rotation-banner h2 { 
-    font-size: 2.8rem; 
-    margin-bottom: 15px; 
-    color: var(--neon-purple);
-    text-transform: uppercase;
+.rotation-banner:hover {
+    background: linear-gradient(135deg, #2d1b4d, #3d2b6d);
+    border-color: var(--neon-purple);
 }
 
-/* --- TEAM FOOTER --- */
-.team-footer {
-    margin-top: 60px;
-    text-align: center;
-}
-
-.footer-card {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 40px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.footer-card p {
-    font-style: italic;
-    font-size: 1.1rem;
-    opacity: 0.8;
-}
-
+/* --- FOOTER --- */
 .brand-signature {
     display: block;
     margin-top: 20px;
     font-weight: bold;
     color: var(--neon-purple);
-    font-style: normal;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
+    text-shadow: 0 0 10px var(--neon-purple);
 }
 
-/* --- RESPONSIVE --- */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-    .bento-grid { 
-        grid-template-columns: 1fr 1fr; 
-        grid-template-rows: auto; 
-    }
-    .bento-card.big { 
-        height: 350px; 
-        padding-bottom: 50px;
-    }
-    .mechanics-section { 
-        grid-template-columns: 1fr; 
-    }
-    .glitch-text {
-        font-size: 3.5rem;
-    }
+    .bento-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .bento-card.big { height: 450px; padding-bottom: 100px; }
+    .mechanics-section { grid-template-columns: 1fr; }
 }
