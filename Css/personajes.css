@@ -54,3 +54,120 @@
     margin-top: 15px;
     font-size: 1rem;
 }
+
+
+/* 1. Definimos la animación de entrada */
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        filter: blur(5px); /* Empieza un poco borroso */
+    }
+    to {
+        opacity: 1;
+        filter: blur(0); /* Termina nítido */
+    }
+}
+
+/* 2. Aplicamos la animación al contenedor principal */
+.characters-page {
+    padding: 120px 5% 60px;
+    background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+    min-height: 100vh;
+    
+    /* CONFIGURACIÓN DE LA ANIMACIÓN */
+    animation: fadeInPage 0.8s ease-out forwards; 
+    transition: background 0.5s ease; /* Suaviza el cambio de color */
+}
+
+/* 3. Animación para que las tarjetas suban suavemente al cargar */
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.char-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 25px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+    
+    /* Aplicamos animación individual a las tarjetas */
+    animation: slideUp 0.6s ease-out both;
+}
+
+/* Retraso para que las tarjetas salgan una tras otra */
+.char-card:nth-child(1) { animation-delay: 0.2s; }
+.char-card:nth-child(2) { animation-delay: 0.4s; }
+.char-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* --- EL RESTO DEL CSS SE MANTIENE IGUAL --- */
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.char-card:hover { 
+    transform: translateY(-12px) scale(1.02); /* Un pequeño aumento al pasar el mouse */
+    transition: 0.3s;
+}
+
+.apple:hover { border-color: #ff4d4d; box-shadow: 0 10px 30px rgba(255, 77, 77, 0.3); }
+.pear:hover { border-color: #a8e063; box-shadow: 0 10px 30px rgba(168, 224, 99, 0.3); }
+.blueberry:hover { border-color: #4facfe; box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3); }
+
+.char-img-container {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.char-portrait {
+    max-height: 100%;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+}
+
+.rarity {
+    background: #ffd700;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.char-stats {
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+
+.char-skills h3 {
+    font-size: 1rem;
+    color: #a27cff;
+    margin-bottom: 5px;
+}
+
+.super-title {
+    color: #ff00ff !important;
+    margin-top: 15px;
+    font-weight: bold;
+}
