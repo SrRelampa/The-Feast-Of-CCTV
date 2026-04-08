@@ -257,13 +257,123 @@ body {
   border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.8;
 }
 
-/* --- Responsive --- */
+/* ====================== MODO MÓVIL (TOTALMENTE ADAPTABLE) ====================== */
 @media (max-width: 768px) {
-  .kyamo { padding: 15px; flex-direction: column; gap: 10px; }
-  .logo { width: 70px; margin-bottom: 0; }
-  .brand-name { font-size: 1.3rem; }
-  .main-menu { justify-content: center; }
-  .project-container { flex-direction: column; text-align: center; }
-  .project-image-wrapper { min-height: 300px; width: 100%; }
-  .floating-game-logo { max-width: 300px; }
+  
+  /* 1. Header: Logo arriba y menú abajo bien centrado */
+  .kyamo {
+    flex-direction: column;
+    padding: 15px 5%;
+    min-height: auto;
+    gap: 15px;
+  }
+
+  .left {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo {
+    width: 80px; /* Tamaño equilibrado para cel */
+    margin-bottom: 0;
+  }
+
+  .brand-name {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .main-menu {
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+  }
+
+  .main-menu a, .parent-title {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+
+  /* 2. Banner: Que el texto no tape toda la imagen */
+  .banner-text {
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .banner-text-content {
+    padding: 15px;
+    backdrop-filter: blur(4px);
+  }
+
+  .banner-text h1 { font-size: 1.8rem; }
+  .banner-text p { font-size: 1rem; }
+
+  /* 3. Secciones: Menos relleno para aprovechar la pantalla */
+  .main-content {
+    padding: 40px 6%;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* 4. Misión y Grid: Todo en una sola columna */
+  .features-grid {
+    grid-template-columns: 1fr; /* Una columna */
+    gap: 20px;
+  }
+
+  .mission-section {
+    padding: 40px 20px;
+    border-radius: 25px;
+  }
+
+  /* 5. Proyecto Estrella (El del logo de comida) */
+  .featured-project {
+    padding: 30px 20px;
+    border-radius: 30px;
+  }
+
+  .project-container {
+    flex-direction: column; /* Texto arriba, Imagen abajo */
+    gap: 30px;
+  }
+
+  .project-name {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .project-image-wrapper {
+    min-height: 250px;
+    width: 100%;
+  }
+
+  .floating-game-logo {
+    max-width: 260px; /* Logo del juego ajustado al ancho del cel */
+  }
+
+  /* 6. Footer: Todo centrado para que sea fácil de leer */
+  .footer-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-logo {
+    width: 100px;
+    margin: 0 auto 15px;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .social-icons img {
+    margin: 0;
+  }
 }
