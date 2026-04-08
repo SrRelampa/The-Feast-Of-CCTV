@@ -4,208 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro - The Feast Of CCTV</title>
-  <link rel="stylesheet" href="estilos.css">
-  <style>
-    .content-wrapper {
-      padding: 40px 5%;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .contenedor-registro {
-      background-color: white;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 8px 25px rgba(106, 78, 156, 0.15);
-      border-top: 5px solid var(--lavanda-fuerte);
-    }
-
-    .header-registro {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .mini-logo {
-      width: 60px;
-      height: auto;
-      margin-bottom: 15px;
-      filter: drop-shadow(2px 2px 4px rgba(106, 78, 156, 0.3));
-    }
-
-    .header-registro h1 {
-      color: var(--lavanda-fuerte);
-      margin: 15px 0 5px;
-      font-size: 1.8em;
-    }
-
-    .header-registro .subtitle {
-      color: var(--lavanda-medio);
-      font-size: 0.95em;
-      margin: 0;
-    }
-
-    .separador {
-      border: none;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--lavanda-claro), transparent);
-      margin: 25px 0;
-    }
-
-    .campo {
-      margin-bottom: 22px;
-    }
-
-    .campo label {
-      display: block;
-      color: var(--lavanda-fuerte);
-      font-weight: 600;
-      margin-bottom: 8px;
-      font-size: 0.95em;
-    }
-
-    .campo input,
-    .campo select {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid var(--lavanda-claro);
-      border-radius: 6px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 0.95em;
-      transition: all 0.3s;
-      box-sizing: border-box;
-    }
-
-    .campo input:focus,
-    .campo select:focus {
-      outline: none;
-      border-color: var(--lavanda-medio);
-      box-shadow: 0 0 8px rgba(106, 78, 156, 0.2);
-    }
-
-    .campo input::placeholder {
-      color: #bbb;
-    }
-
-    .checkbox-group {
-      display: flex;
-      gap: 20px;
-      margin-top: 10px;
-    }
-
-    .checkbox-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-    }
-
-    .checkbox-item input[type="checkbox"] {
-      width: auto;
-      cursor: pointer;
-    }
-
-    .checkbox-item label {
-      margin: 0;
-      cursor: pointer;
-      font-weight: normal;
-      color: #2d3436;
-    }
-
-    .boton-enviar {
-      width: 100%;
-      padding: 14px;
-      background: linear-gradient(90deg, var(--lavanda-fuerte), var(--lavanda-medio));
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 1em;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 10px;
-    }
-
-    .boton-enviar:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(106, 78, 156, 0.3);
-    }
-
-    .boton-enviar:active {
-      transform: translateY(0);
-    }
-
-    .footer-wrapper {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 768px) {
-      .contenedor-registro {
-        padding: 25px;
-      }
-
-      .content-wrapper {
-        padding: 20px 5%;
-      }
-
-      .header-registro h1 {
-        font-size: 1.4em;
-      }
-
-      .footer-wrapper {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="Css/estilos.css">
+  <link rel="stylesheet" href="Css/registro.css">
 </head>
-<body>
+<body class="gameplay-page">
 
-  <div class="kyamo">
+  <header class="kyamo">
     <div class="left">
-      <img src="Img/Logo.png" class="logo">
-      <h2 class="brand-name">The Feast Of CCTV</h2>
+      <img src="Img/Logo_Empresa.png" class="logo" alt="Logo CCTV Studios">
+      <h2 class="brand-name">CCTV Corporation</h2>
     </div>
-
-    <ul class="main-menu">
-      <li><a href="index.html">Inicio</a></li>
-
-      <li class="has-submenu">
-        <span class="parent-title">Información</span>
-        <ul class="submenu">
-          <li><a href="Personajes.html">Personajes</a></li>
-          <li><a href="powerups.html">Power Ups</a></li>
-          <li><a href="comojugar.html">¿Cómo jugar?</a></li>
-        </ul>
-      </li>
-
-      <li><a href="Registro.html">Registros</a></li>
-    </ul>
-  </div>
+    <nav>
+      <ul class="main-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="has-submenu">
+          <span class="parent-title">El Juego</span>
+          <ul class="submenu">
+            <li><a href="comojugar.html">Información</a></li>
+            <li><a href="Personajes.html">Personajes</a></li>
+            <li><a href="powerups.html">Cosas Futuras</a></li>
+          </ul>
+        </li>
+        <li><a href="Registro.html">Registro</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="content-wrapper">
     <div class="contenedor-registro">
       <div class="header-registro">
         <img src="Img/Logo.png" alt="Logo" class="mini-logo">
         <h1>Únete a la Beta</h1>
-        <p class="subtitle">¡Sé de los primeros en jugar The Feast Of CCTV!</p>
+        <p class="subtitle">¡Sé de los primeros en probar la experiencia!</p>
       </div>
 
-      <hr class="separador">
-
-      <form action="#" method="POST">
+      <form action="procesar_registro.php" method="POST">
         <div class="campo">
           <label>Gamertag (Apodo):</label>
-          <input type="text" name="gamertag" placeholder="Tu nombre de jugador" required>
+          <input type="text" name="gamertag" placeholder="Ej: GuerreroCCTV" required>
         </div>
 
         <div class="campo">
           <label>Correo Electrónico:</label>
-          <input type="email" name="email" placeholder="tu-correo@ejemplo.com" required>
+          <input type="email" name="email" placeholder="tu@correo.com" required>
         </div>
 
         <div class="campo">
@@ -216,10 +57,8 @@
         <div class="campo">
           <label>Plataforma Preferida:</label>
           <select name="platform" required>
-            <option value="">Selecciona una plataforma</option>
+            <option value="">Selecciona una opción</option>
             <option value="pc">PC</option>
-            <option value="ps5">PlayStation 5</option>
-            <option value="xbox">Xbox Series X/S</option>
             <option value="mobile">Mobile</option>
           </select>
         </div>
@@ -227,61 +66,39 @@
         <div class="campo">
           <label>¿Cómo prefieres jugar?</label>
           <div class="checkbox-group">
-            <div class="checkbox-item">
-              <input type="checkbox" id="solo" name="modo" value="solo">
-              <label for="solo">Solo</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="coop" name="modo" value="cooperativo">
-              <label for="coop">Cooperativo</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="pvp" name="modo" value="pvp">
-              <label for="pvp">PvP</label>
-            </div>
+            <label class="checkbox-item"><input type="checkbox" name="modo[]" value="solo"> Solo</label>
+            <label class="checkbox-item"><input type="checkbox" name="modo[]" value="coop"> Coop</label>
+            <label class="checkbox-item"><input type="checkbox" name="modo[]" value="pvp"> PvP</label>
           </div>
         </div>
 
-        <div class="campo">
-          <label>
-            <input type="checkbox" name="terminos" required>
-            Acepto los términos y condiciones de la beta
-          </label>
-        </div>
-
-        <button type="submit" class="boton-enviar">Registrarse en la Beta</button>
+        <button type="submit" class="boton-enviar">Registrarse Ahora</button>
       </form>
     </div>
   </main>
 
-  <section>
-    <footer class="site-footer">
-      <div class="footer-wrapper">
-        <div class="footer-column left">
-          <img src="img/Logo.png" alt="The Feast Of CCTV" class="footer-logo">         
-          <div class="contact-info">
-            <h4>CONTACTO</h4>
-            <p><span class="icon">📞</span> 6692239261</p>
-            <p><span class="icon">✉️</span> contacto@thefeastofcctv.com</p>
-          </div>
-        </div>
-
-        <div class="footer-column right">
-          <h4>REDES SOCIALES</h4>
-          <div class="social-icons">
-            <a href="https://x.com" target="_blank"><img src="Img/Social/X-Twitter.png" alt="X"></a>
-          <a href="https://instagram.com/" target="_blank"><img src="Img/Social/Instagram.png" alt="Instagram"></a>
-          <a href="https://tiktok.com/" target="_blank"><img src="Img/Docial/TikTok.png" alt="TikTok"></a>
-          <a href="https://youtube.com/" target="_blank"><img src="Img/Social/YouTube.png" alt="YouTube"></a>
-          </div>
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+      <div class="footer-column left">
+        <img src="Img/Logo_Empresa.png" alt="CCTV Studios" class="footer-logo">         
+        <div class="contact-info">
+          <h4>CONTACTO EMPRESARIAL</h4>
+          <p><span class="icon">📞</span> 6692239261</p>
+          <p><span class="icon">✉️</span> contacto@thefeastofcctv.com</p>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        © 2026 The Feast Of CCTV
+      <div class="footer-column right">
+        <h4>REDES SOCIALES</h4>
+        <div class="social-icons">
+          <a href="#"><img src="Img/Social/X-Twitter.png" alt="X"></a>
+          <a href="#"><img src="Img/Social/Instagram.png" alt="Instagram"></a>
+          <a href="#"><img src="Img/Social/TikTok.png" alt="TikTok"></a>
+          <a href="#"><img src="Img/Social/YouTube.png" alt="YouTube"></a>
+        </div>
       </div>
-    </footer>
-  </section>
+    </div>
+    <div class="footer-bottom">© 2026 CCTV Corporation</div>
+  </footer>
 
 </body>
 </html>
