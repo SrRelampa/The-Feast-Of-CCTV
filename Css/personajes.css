@@ -1,118 +1,120 @@
-/* personajes.css - Diseño Rescatado con Fondo Coherente */
+/* personajes.css - RÉPLICA EXACTA DEL DISEÑO */
 
-:root {
-  --lavanda-fuerte: #2d1b4d;
-  --lavanda-medio: #6a4e9c;
-  --lavanda-claro: #a27cff;
-  --blanco-fondo: #f8f6ff; /* Fondo claro igual al index */
-}
-
-/* 1. Fondo de la página (Limpio para que pegue con el Inicio) */
+/* 1. Fondo de la página (Coherente con el Inicio) */
 .characters-page {
     padding: 120px 5% 60px;
-    background-color: var(--blanco-fondo);
+    background: linear-gradient(180deg, #f4f0ff 0%, #ffffff 100%); /* Degradado suave */
     min-height: 100vh;
     text-align: center;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif; /* Usamos Poppins para un look moderno */
 }
 
 .section-title {
-    color: var(--lavanda-fuerte);
-    font-size: 2.8rem;
-    margin-bottom: 50px;
-    text-transform: uppercase;
+    color: #2d1b4d; /* Morado fuerte */
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 700;
 }
 
-/* 2. Grid de 3 columnas para computadora */
+/* 2. Grid de 3 columnas para PC */
 .characters-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* 3. Estilo de la Tarjeta (Rescatando el diseño anterior) */
+/* 3. La Tarjeta (Diseño que te gustó, adaptado al fondo claro) */
 .char-card {
     background: #ffffff;
-    border-radius: 30px;
-    padding: 25px;
-    border: 2px solid transparent; /* El color lo dan las clases apple, pear, blueberry */
-    box-shadow: 0 10px 30px rgba(106, 78, 156, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
+    border-radius: 25px;
+    padding: 30px;
+    border: 2px solid transparent; /* El color lo dan las clases por personaje */
+    box-shadow: 0 10px 30px rgba(45, 27, 77, 0.1);
     color: #333;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
 .char-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(106, 78, 156, 0.2);
+    box-shadow: 0 15px 40px rgba(45, 27, 77, 0.2);
 }
 
-/* Colores de bordes por personaje */
+/* Bordes de color según la fruta */
 .apple { border-color: #ff4d4d; }
 .pear { border-color: #a8e063; }
 .blueberry { border-color: #4facfe; }
 
-/* 4. Contenedor de la Imagen */
+/* 4. Encabezado de la Tarjeta */
+.rarity {
+    font-size: 0.7rem;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.char-header h2 {
+    color: #2d1b4d;
+    font-size: 1.8rem;
+    margin: 8px 0 15px 0;
+}
+
+/* 5. Contenedor de la Imagen */
 .char-img-container {
     width: 100%;
-    height: 180px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 15px 0;
-    background: radial-gradient(circle, rgba(162, 124, 255, 0.05) 0%, transparent 70%);
+    margin-bottom: 15px;
+    background: radial-gradient(circle, rgba(162, 124, 255, 0.1) 0%, transparent 70%);
 }
 
 .char-portrait {
     max-height: 100%;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
 }
 
-/* 5. Caja de Stats (El bloque oscuro que te gustó) */
+/* 6. Caja de Stats (El bloque oscuro que te gustó) */
 .char-stats-box {
-    background: var(--lavanda-fuerte);
+    background: #2d1b4d;
     color: white;
-    padding: 18px;
+    padding: 20px;
     border-radius: 20px;
     margin-bottom: 20px;
 }
 
 .char-stats-box p {
-    margin: 6px 0;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 0.95rem;
+    margin: 8px 0;
 }
 
-/* 6. Textos de Habilidades */
-.char-header h2 {
-    color: var(--lavanda-fuerte);
-    font-size: 1.8rem;
-    margin-bottom: 5px;
-}
+/* 7. Colores exactos para los iconos de stats */
+.hp-row::before { color: #ff4d4d; } /* Rojo */
+.damage-row::before { color: #888; } /* Gris */
+.ammo-row::before { color: #ffd700; } /* Dorado */
+.type-row::before { color: #4facfe; } /* Azul */
 
-.rarity {
-    font-size: 0.7rem;
-    color: #888;
-    font-weight: bold;
-}
-
+/* 8. Textos de Habilidades */
 .skill-title {
-    color: var(--lavanda-medio);
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-}
-
-.super-title {
-    color: #e91e63 !important; /* Rosa neón para la Ulti */
-    margin-top: 15px;
+    color: #6a4e9c;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
 .skills-section p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #555;
-    line-height: 1.4;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.super-title {
+    color: #ff00ff !important; /* El fucsia de la Ulti */
+    font-size: 1.15rem;
+    margin-top: 20px;
 }
