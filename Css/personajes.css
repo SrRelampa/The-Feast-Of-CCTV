@@ -1,8 +1,39 @@
-/* Contenedor General */
+/* --- ANIMACIONES --- */
+
+/* Animación para el fondo de la página */
+@keyframes fadeInBg {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animación para que las tarjetas suban suavemente */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- ESTILOS GENERALES --- */
+
 .characters-page {
     padding: 120px 5% 60px;
-    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+    /* Fondo oscuro dinámico con animación */
+    background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
     min-height: 100vh;
+    animation: fadeInBg 1s ease-in-out;
+}
+
+.section-title {
+    color: white;
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(162, 124, 255, 0.4);
 }
 
 /* Grid de 3 columnas para PC */
@@ -14,119 +45,38 @@
     margin: 40px auto 0;
 }
 
-/* Estilo base de la tarjeta */
+/* --- ESTILO DE LA TARJETA --- */
+
 .char-card {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 25px;
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s ease;
-    text-align: left;
-}
-
-.char-card:hover { transform: translateY(-10px); }
-
-/* Colores Dinámicos */
-.apple:hover { border-color: #ff4d4d; box-shadow: 0 0 20px rgba(255, 77, 77, 0.2); }
-.pear:hover { border-color: #a8e063; box-shadow: 0 0 20px rgba(168, 224, 99, 0.2); }
-.blueberry:hover { border-color: #4facfe; box-shadow: 0 0 20px rgba(79, 172, 254, 0.2); }
-
-/* Etiquetas y Textos */
-.rarity {
-    background: #ffd700;
-    color: #000;
-    padding: 3px 10px;
-    border-radius: 5px;
-    font-size: 0.7rem;
-    font-weight: bold;
-}
-
-.char-stats {
-    background: rgba(0,0,0,0.4);
-    padding: 15px;
-    border-radius: 12px;
-    margin: 15px 0;
-}
-
-.super-title {
-    color: #ff00ff; /* Color Neón */
-    margin-top: 15px;
-    font-size: 1rem;
-}
-
-
-/* 1. Definimos la animación de entrada */
-@keyframes fadeInPage {
-    from {
-        opacity: 0;
-        filter: blur(5px); /* Empieza un poco borroso */
-    }
-    to {
-        opacity: 1;
-        filter: blur(0); /* Termina nítido */
-    }
-}
-
-/* 2. Aplicamos la animación al contenedor principal */
-.characters-page {
-    padding: 120px 5% 60px;
-    background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
-    min-height: 100vh;
-    
-    /* CONFIGURACIÓN DE LA ANIMACIÓN */
-    animation: fadeInPage 0.8s ease-out forwards; 
-    transition: background 0.5s ease; /* Suaviza el cambio de color */
-}
-
-/* 3. Animación para que las tarjetas suban suavemente al cargar */
-@keyframes slideUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.char-card {
-    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
     border-radius: 25px;
     padding: 25px;
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
     text-align: left;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     
-    /* Aplicamos animación individual a las tarjetas */
-    animation: slideUp 0.6s ease-out both;
+    /* Animación de entrada en cascada */
+    animation: fadeInUp 0.8s ease-out both;
 }
 
-/* Retraso para que las tarjetas salgan una tras otra */
+/* Retrasos para el efecto cascada */
 .char-card:nth-child(1) { animation-delay: 0.2s; }
 .char-card:nth-child(2) { animation-delay: 0.4s; }
 .char-card:nth-child(3) { animation-delay: 0.6s; }
 
-/* --- EL RESTO DEL CSS SE MANTIENE IGUAL --- */
-
-.characters-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    max-width: 1200px;
-    margin: 40px auto 0;
-}
-
+/* Efectos Hover */
 .char-card:hover { 
-    transform: translateY(-12px) scale(1.02); /* Un pequeño aumento al pasar el mouse */
-    transition: 0.3s;
+    transform: translateY(-12px); 
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.apple:hover { border-color: #ff4d4d; box-shadow: 0 10px 30px rgba(255, 77, 77, 0.3); }
-.pear:hover { border-color: #a8e063; box-shadow: 0 10px 30px rgba(168, 224, 99, 0.3); }
-.blueberry:hover { border-color: #4facfe; box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3); }
+.apple:hover { border-color: #ff4d4d; box-shadow: 0 0 30px rgba(255, 77, 77, 0.3); }
+.pear:hover { border-color: #a8e063; box-shadow: 0 0 30px rgba(168, 224, 99, 0.3); }
+.blueberry:hover { border-color: #4facfe; box-shadow: 0 0 30px rgba(79, 172, 254, 0.3); }
+
+/* --- IMÁGENES Y CONTENIDO --- */
 
 .char-img-container {
     width: 100%;
@@ -140,8 +90,14 @@
 .char-portrait {
     max-height: 100%;
     filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+    transition: transform 0.3s ease;
 }
 
+.char-card:hover .char-portrait {
+    transform: scale(1.1); /* La imagen crece un poco al pasar el mouse */
+}
+
+/* Etiquetas y Stats */
 .rarity {
     background: #ffd700;
     color: #000;
@@ -153,21 +109,40 @@
     margin-bottom: 10px;
 }
 
+.char-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
 .char-stats {
     background: rgba(0,0,0,0.5);
     padding: 15px;
     border-radius: 15px;
     margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.char-stats p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* Habilidades */
 .char-skills h3 {
     font-size: 1rem;
-    color: #a27cff;
+    color: #a27cff; /* Tono lavanda para títulos */
     margin-bottom: 5px;
 }
 
 .super-title {
-    color: #ff00ff !important;
+    color: #ff00ff !important; /* Rosa Neón */
     margin-top: 15px;
     font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.4);
+}
+
+.char-skills p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.4;
 }
