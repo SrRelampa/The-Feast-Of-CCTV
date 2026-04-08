@@ -257,12 +257,11 @@ body {
   border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.8;
 }
 
-/* ====================== RESPONSIVE MÓVIL FINAL ====================== */
-@media (max-width: 768px) {
-/* ====================== AJUSTE MÓVIL (DETALLES FINALES) ====================== */
+
+/* ====================== MODO MÓVIL DEFINITIVO ====================== */
 @media (max-width: 768px) {
   
-  /* Header más compacto para que no use media pantalla */
+  /* 1. Header compacto */
   .kyamo {
     padding: 8px 5%;
     flex-direction: column; 
@@ -270,12 +269,12 @@ body {
   }
 
   .left {
-    flex-direction: row; /* Logo y texto juntos */
+    flex-direction: row; 
     gap: 10px;
   }
 
   .logo {
-    width: 45px; /* Tamaño reducido para móvil */
+    width: 45px; 
     margin: 0;
   }
 
@@ -284,7 +283,6 @@ body {
     letter-spacing: 1px;
   }
 
-  /* Menú con botones más pequeños */
   .main-menu {
     gap: 5px;
   }
@@ -294,33 +292,33 @@ body {
     padding: 5px 10px;
   }
 
-  /* Arreglo del Banner para que luzca la imagen */
+  /* 2. Banner: Texto miniatura para que luzca el arte */
   .banner-text {
-    top: 50%;         /* Lo mantenemos centrado verticalmente */
-    left: 5%;         /* Pegado a la izquierda */
-    max-width: 200px; /* Lo hacemos muy estrecho para que no tape el centro */
+    top: 50%;
+    left: 5%;
+    max-width: 180px; /* Súper estrecho para no tapar el centro */
     transform: translateY(-50%);
+    position: absolute; /* Asegura que flote sobre la imagen */
   }
 
-  /* Esto controla el cuadro y las letras */
   .banner-text-content {
-    padding: 8px 12px; /* Super pequeño */
-    background: rgba(0, 0, 0, 0.5); /* Fondo suave */
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border-left: 3px solid var(--lavanda-medio);
   }
 
   .banner-text h1 {
-    font-size: 1.1rem; /* Título miniatura */
+    font-size: 1rem; /* Título muy pequeño */
     margin: 0;
   }
 
   .banner-text p {
-    font-size: 0.7rem; /* Texto de apoyo muy pequeño */
+    font-size: 0.65rem; /* Texto casi miniatura */
     line-height: 1.1;
   }
-}
 
-
-  /* 3. Misión y Tarjetas: Una sola columna limpia */
+  /* 3. Contenido principal y Misión */
   .main-content {
     padding: 30px 5%;
   }
@@ -330,11 +328,11 @@ body {
   }
 
   .features-grid {
-    grid-template-columns: 1fr; /* Tarjetas una debajo de otra */
+    grid-template-columns: 1fr; 
     gap: 15px;
   }
 
-  /* 4. Sección del Juego: Logo y Slider Adaptados */
+  /* 4. Juego Destacado: Logo y Slider */
   .project-container {
     flex-direction: column;
     gap: 20px;
@@ -346,15 +344,15 @@ body {
   }
 
   .project-image-wrapper {
-    min-height: 200px; /* Menos alto en móvil */
+    min-height: 220px; 
     width: 100%;
   }
 
   .floating-game-logo {
-    max-width: 220px; /* Logo del juego que no desborde */
+    max-width: 200px; /* Logo del juego ajustado */
   }
 
-  /* 5. Footer: Compacto */
+  /* 5. Footer móvil */
   .footer-wrapper {
     flex-direction: column;
     text-align: center;
@@ -362,7 +360,7 @@ body {
   }
 
   .footer-logo {
-    width: 90px;
+    width: 80px;
     margin: 0 auto;
   }
-}
+} /* AQUÍ SE CIERRA EL MEDIA QUERY */
