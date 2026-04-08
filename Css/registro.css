@@ -1,129 +1,98 @@
-/* --- ESTILOS REGISTRO THE FEAST --- */
+/* --- ESTILO REGISTRO CLARO Y ALINEADO --- */
 :root {
-    --neon-purple: #a27cff;
-    --neon-pink: #ff00ff;
-    --deep-bg: #0f0f1a;
-    --input-bg: rgba(255, 255, 255, 0.05);
+    --lavanda-fuerte: #6a4e9c;
+    --lavanda-medio: #a27cff;
+    --lavanda-claro: #f4f0ff;
+    --texto: #2d3436;
 }
 
 .content-wrapper {
-    padding: 60px 5%;
+    padding: 40px 5%;
     max-width: 600px;
     margin: 0 auto;
-    animation: fadeInUp 0.8s ease-out;
 }
 
 .contenedor-registro {
-    background-color: #161625;
-    border-radius: 25px;
-    padding: 45px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(162, 124, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Efecto de resplandor superior */
-.contenedor-registro::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 4px;
-    background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(106, 78, 156, 0.1); /* Sombra suave */
+    border-top: 6px solid var(--lavanda-fuerte);
 }
 
 .header-registro {
     text-align: center;
-    margin-bottom: 35px;
-}
-
-.mini-logo {
-    width: 70px;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 0 10px var(--neon-purple));
+    margin-bottom: 30px;
 }
 
 .header-registro h1 {
-    color: #fff;
+    color: var(--lavanda-fuerte);
     font-size: 2rem;
-    margin-bottom: 10px;
 }
 
 .header-registro .subtitle {
-    color: var(--neon-purple);
-    font-size: 1rem;
-    opacity: 0.8;
+    color: var(--lavanda-medio);
 }
 
 .campo {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .campo label {
     display: block;
-    color: #eee;
+    color: var(--texto);
     font-weight: 600;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
+    margin-bottom: 8px;
 }
 
-.campo input,
-.campo select {
+.campo input, .campo select {
     width: 100%;
-    padding: 14px;
-    background: var(--input-bg);
-    border: 1px solid rgba(162, 124, 255, 0.3);
-    border-radius: 10px;
-    color: #fff;
-    font-size: 1rem;
-    transition: 0.3s;
+    padding: 12px;
+    border: 2px solid var(--lavanda-claro);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--texto);
 }
 
-.campo input:focus,
-.campo select:focus {
-    outline: none;
-    border-color: var(--neon-purple);
-    background: rgba(162, 124, 255, 0.1);
-    box-shadow: 0 0 15px rgba(162, 124, 255, 0.2);
-}
-
+/* --- SOLUCIÓN DE ALINEACIÓN DE CHECKBOXES --- */
 .checkbox-group {
     display: flex;
-    gap: 20px;
-    background: rgba(255, 255, 255, 0.02);
+    justify-content: space-around; /* Los separa equitativamente */
+    background: var(--lavanda-claro);
     padding: 15px;
     border-radius: 10px;
+    flex-wrap: wrap; /* Por si el móvil es muy pequeño */
 }
 
 .checkbox-item {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #ccc;
+    align-items: center; /* Alinea el cuadro con el texto verticalmente */
+    gap: 10px; /* Espacio entre el cuadro y la palabra */
+    cursor: pointer;
+    color: var(--texto);
+    font-size: 0.95rem;
+}
+
+.checkbox-item input {
+    width: 18px; /* Tamaño fijo para que no se deforme */
+    height: 18px;
     cursor: pointer;
 }
 
 .boton-enviar {
     width: 100%;
     padding: 16px;
-    background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink));
+    background: linear-gradient(90deg, var(--lavanda-fuerte), var(--lavanda-medio));
     color: white;
     border: none;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 1.1rem;
     cursor: pointer;
-    transition: 0.4s;
+    transition: 0.3s;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 20px;
 }
 
 .boton-enviar:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255, 0, 255, 0.4);
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(106, 78, 156, 0.3);
 }
