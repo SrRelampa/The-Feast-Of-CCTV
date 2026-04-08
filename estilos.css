@@ -259,58 +259,65 @@ body {
 
 /* ====================== RESPONSIVE MÓVIL FINAL ====================== */
 @media (max-width: 768px) {
+/* ====================== AJUSTE MÓVIL (DETALLES FINALES) ====================== */
+@media (max-width: 768px) {
   
-  /* 1. Ajuste del Header: Logo y Nombre más compactos */
+  /* Header más compacto para que no use media pantalla */
   .kyamo {
-    flex-direction: column;
-    padding: 10px 5%;
-    min-height: auto;
-    gap: 10px;
+    padding: 8px 5%;
+    flex-direction: column; 
+    gap: 5px;
   }
 
   .left {
-    flex-direction: row; /* Logo y nombre en la misma línea */
-    justify-content: center;
+    flex-direction: row; /* Logo y texto juntos */
     gap: 10px;
   }
 
   .logo {
-    width: 50px; /* Logo más pequeño en móvil para ahorrar espacio */
+    width: 45px; /* Tamaño reducido para móvil */
     margin: 0;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
   }
 
   .brand-name {
-    font-size: 1.1rem; /* Texto más pequeño para que no se corte */
+    font-size: 1.1rem;
     letter-spacing: 1px;
   }
 
+  /* Menú con botones más pequeños */
   .main-menu {
-    justify-content: center;
     gap: 5px;
-    padding-bottom: 5px;
   }
-
+  
   .main-menu a, .parent-title {
-    font-size: 0.8rem; /* Menú compacto */
-    padding: 6px 10px;
+    font-size: 0.8rem;
+    padding: 5px 10px;
   }
 
-  /* 2. Banner: Ajuste de altura para que se vea el fondo */
+  /* Arreglo del Banner para que luzca la imagen */
   .banner-text {
-    position: relative; /* Lo sacamos de posición absoluta para que no tape la imagen */
+    position: relative; /* Ya no flota sobre la imagen, se pone debajo o ajustado */
     top: 0;
     transform: none;
-    padding: 20px;
+    padding: 15px;
+    width: 90%;
+    margin: -20px auto 0; /* Sube un poquito para entrar en la imagen */
   }
 
   .banner-text-content {
     padding: 15px;
     border-radius: 15px;
-    margin-top: -30px; /* Sube un poco para entrar en la imagen */
   }
 
-  .banner-text h1 { font-size: 1.6rem; }
+  .banner-text h1 {
+    font-size: 1.5rem; /* Título más acorde al cel */
+  }
+
+  .banner-text p {
+    font-size: 0.9rem;
+  }
+}
+
 
   /* 3. Misión y Tarjetas: Una sola columna limpia */
   .main-content {
