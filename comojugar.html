@@ -3,67 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>¿Cómo Jugar? - The Feast Of CCTV</title>
-  <link rel="stylesheet" href="estilos.css">
+  <title>CCTV Corporation | Inicio</title>
+  <link rel="stylesheet" href="Css/estilos.css">
+  <link rel="stylesheet" href="Css/personajes.css">
 </head>
 <body>
 
-  <div class="kyamo">
+  <header class="kyamo">
     <div class="left">
-      <img src="Img/Logo.png" class="logo">
-      <h2 class="brand-name">The Feast Of CCTV</h2>
+      <img src="Img/Logo_Empresa.png" class="logo" alt="Logo CCTV Studios">
+      <h2 class="brand-name">CCTV Corporation</h2>
     </div>
 
-    <ul class="main-menu">
-      <li><a href="index.html">Inicio</a></li>
+    <nav>
+      <ul class="main-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="has-submenu">
+          <span class="parent-title">El Juego</span>
+          <ul class="submenu">
+            <li><a href="comojugar.html">Información</a></li>
+            <li><a href="Personajes.html">Personajes</a></li>
+            <li><a href="powerups.html">Cosas Futuras</a></li>
+          </ul>
+        </li>
+        <li><a href="Registro.html">Registro</a></li>
+      </ul>
+    </nav>
+  </header>
 
-      <li class="has-submenu">
-        <span class="parent-title">Información</span>
-        <ul class="submenu">
-          <li><a href="Personajes.html">Personajes</a></li>
-          <li><a href="powerups.html">Power Ups</a></li>
-          <li><a href="comojugar.html">¿Cómo jugar?</a></li>
-        </ul>
-      </li>
 
-      <li><a href="Registro.html">Registros</a></li>
-    </ul>
-  </div>
+<main class="characters-page">
+    <h1 class="section-title">Guerreros de la Comida</h1>
+    
+    <div class="characters-grid">
+        <div class="char-card apple">
+            <div class="char-header">
+                <span class="rarity">COMÚN / INICIAL</span>
+                <h2>Manzana</h2>
+            </div>
+            
+            <div class="char-img-container">
+                <img src="Img/Personajes/Manzana.png" alt="Manzana" class="char-portrait">
+            </div>
 
-  <section class="main-content" style="padding: 40px 5%;">
-    <h1>¿Cómo Jugar?</h1>
-    <p>Guía completa para aprender a jugar The Feast Of CCTV</p>
-    <!-- Agrega aquí las instrucciones del juego -->
-  </section>
-
-  <section>
-    <footer class="site-footer">
-      <div class="footer-wrapper" style="display: flex; justify-content: space-between;">
-        <div class="footer-column left">
-          <img src="img/Logo.png" alt="The Feast Of CCTV" class="footer-logo">         
-          <div class="contact-info">
-            <h4>CONTACTO</h4>
-            <p><span class="icon">📞</span> 6692239261</p>
-            <p><span class="icon">✉️</span> contacto@thefeastofcctv.com</p>
-          </div>
+            <div class="char-body">
+                <div class="char-stats">
+                    <p>❤️ <strong>HP:</strong> 3,200 | ⚔️ <strong>Daño:</strong> 550</p>
+                    <p>🔫 <strong>Munición:</strong> 3 | 🏃 <strong>Tipo:</strong> Cuerpo a Cuerpo</p>
+                </div>
+                <div class="char-skills">
+                    <h3>Ataque Principal</h3>
+                    <p>Espadazo de izquierda a derecha en corto alcance.</p>
+                    <h3 class="super-title">⚡ SÚPER (Ulti)</h3>
+                    <p><strong>Terremoto:</strong> Daño de 500 en área circular extensa. (Carga: 8 ataques)</p>
+                </div>
+            </div>
         </div>
 
-        <div class="footer-column right">
-          <h4>REDES SOCIALES</h4>
-          <div class="social-icons">
-            <a href="https://x.com" target="_blank"><img src="Img/Social/X-Twitter.png" alt="X"></a>
+        <div class="char-card pear">
+            <div class="char-header">
+                <span class="rarity">COMÚN</span>
+                <h2>Pera</h2>
+            </div>
+
+            <div class="char-img-container">
+                <img src="Img/Personajes/Pera.png" alt="Pera" class="char-portrait">
+            </div>
+
+            <div class="char-body">
+                <div class="char-stats">
+                    <p>❤️ <strong>HP:</strong> 2,000 | ⚔️ <strong>Daño:</strong> 550</p>
+                    <p>🔫 <strong>Munición:</strong> 3 | 🛡️ <strong>Tipo:</strong> Apoyo</p>
+                </div>
+                <div class="char-skills">
+                    <h3>Ataque Principal</h3>
+                    <p>Carga de energía ancha en línea recta (alcance medio).</p>
+                    <h3 class="super-title">⚡ SÚPER (Ulti)</h3>
+                    <p><strong>Sombra Protectora:</strong> Invoca sombra (3,200 HP). (Carga: 5 ataques)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="char-card blueberry">
+            <div class="char-header">
+                <span class="rarity">COMÚN</span>
+                <h2>Arándano</h2>
+            </div>
+
+            <div class="char-img-container">
+                <img src="Img/Personajes/Arandano.png" alt="Arándano" class="char-portrait">
+            </div>
+
+            <div class="char-body">
+                <div class="char-stats">
+                    <p>❤️ <strong>HP:</strong> 3,000 | ⚔️ <strong>Daño:</strong> 500 x3</p>
+                    <p>🔫 <strong>Munición:</strong> 3 | 🎯 <strong>Tipo:</strong> Tiro de Élite</p>
+                </div>
+                <div class="char-skills">
+                    <h3>Ataque Principal</h3>
+                    <p>Lanza 3 mini arándanos en línea recta de mediano alcance.</p>
+                    <h3 class="super-title">⚡ SÚPER (Ulti)</h3>
+                    <p><strong>Sobrecarga:</strong> Daño de 1000 que atraviesa enemigos. (Carga: 9 balas)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+      <div class="footer-column left">
+        <img src="Img/Logo_Empresa.png" alt="CCTV Studios" class="footer-logo">         
+        <div class="contact-info">
+          <h4>CONTACTO EMPRESARIAL</h4>
+          <p><span class="icon">📞</span> 6692239261</p>
+          <p><span class="icon">✉️</span> contacto@thefeastofcctv.com</p>
+        </div>
+      </div>
+
+      <div class="footer-column right">
+        <h4>REDES SOCIALES</h4>
+        <div class="social-icons">
+          <a href="https://x.com" target="_blank"><img src="Img/Social/X-Twitter.png" alt="X"></a>
           <a href="https://instagram.com/" target="_blank"><img src="Img/Social/Instagram.png" alt="Instagram"></a>
           <a href="https://tiktok.com/" target="_blank"><img src="Img/Social/TikTok.png" alt="TikTok"></a>
           <a href="https://youtube.com/" target="_blank"><img src="Img/Social/YouTube.png" alt="YouTube"></a>
-          </div>
         </div>
       </div>
+    </div>
 
-      <div class="footer-bottom">
-        © 2026 The Feast Of CCTV
-      </div>
-    </footer>
-  </section>
+    <div class="footer-bottom">
+      © 2026 CCTV Corporation | Desarrollado con imaginación 
+    </div>
+  </footer>
 
 </body>
 </html>
