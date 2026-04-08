@@ -1,75 +1,68 @@
-/* Usamos las mismas variables para no perder el estilo */
-:root {
-  --lavanda-fuerte: #2d1b4d;
-  --lavanda-medio: #6a4e9c;
-  --lavanda-claro: #a27cff;
-  --fondo-oscuro: #1a0f2e; /* Un morado muy profundo, no negro puro */
-}
+/* personajes.css */
 
 .characters-page {
     padding: 120px 5% 60px;
-    /* En lugar de negro, usamos el degradado característico de tu marca */
-    background: linear-gradient(180deg, var(--lavanda-fuerte) 0%, var(--fondo-oscuro) 100%);
+    /* USAMOS EL MISMO FONDO CLARO QUE EL INDEX */
+    background: #f4f0ff; 
     min-height: 100vh;
     text-align: center;
 }
 
-/* Título con el estilo del index */
 .section-title {
-    color: white;
-    font-size: 3rem;
+    color: #2d1b4d; /* Morado oscuro para resaltar en el fondo claro */
+    font-size: 2.5rem;
     margin-bottom: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
-/* El Grid */
 .characters-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Tarjeta: Ahora más integrada (menos oscura, más cristalina) */
+/* LA TARJETA (Diseño que te gustó) */
 .char-card {
-    background: rgba(255, 255, 255, 0.08); /* Efecto cristalino */
-    border-radius: 30px;
+    background: #ffffff; /* Blanca para que pegue con el Inicio */
+    border-radius: 25px;
     padding: 25px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(162, 124, 255, 0.3); /* Borde lavanda */
-    color: white;
-    transition: all 0.4s ease;
+    border: 2px solid transparent; /* El color del borde define al personaje */
+    box-shadow: 0 10px 30px rgba(45, 27, 77, 0.1); /* Sombra lavanda suave */
+    transition: 0.3s;
 }
 
-/* Espacio para la imagen del personaje */
+/* Bordes de colores neón sobre la tarjeta blanca */
+.apple { border-color: #ff4d4d; }
+.pear { border-color: #a8e063; }
+.blueberry { border-color: #4facfe; }
+
+/* El bloque de stats oscuro que te gustó, pero con el morado de tu marca */
+.char-stats-box {
+    background: #2d1b4d; 
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.char-stats-box p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* Títulos internos */
+.char-header h2 { color: #2d1b4d; margin-bottom: 10px; }
+.skill-title { color: #6a4e9c; font-weight: bold; margin-top: 10px; }
+.super-title { color: #e91e63 !important; font-weight: bold; } /* Rosa vibrante */
+
 .char-img-container {
     width: 100%;
-    height: 220px;
-    background: radial-gradient(circle, rgba(162, 124, 255, 0.2) 0%, transparent 70%);
-    border-radius: 20px;
-    margin-bottom: 15px;
+    height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.char-portrait {
-    max-height: 90%;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
-}
-
-/* Acentos de color en el Hover para no saturar */
-.apple:hover { border-color: #ff4d4d; box-shadow: 0 0 30px rgba(255, 77, 77, 0.2); }
-.pear:hover { border-color: #a8e063; box-shadow: 0 0 30px rgba(168, 224, 99, 0.2); }
-.blueberry:hover { border-color: #4facfe; box-shadow: 0 0 30px rgba(79, 172, 254, 0.2); }
-
-.char-stats {
-    background: rgba(45, 27, 77, 0.5); /* Morado oscuro de la paleta */
-    padding: 12px;
-    border-radius: 15px;
-    margin: 15px 0;
-    font-size: 0.9rem;
-    border: 1px solid rgba(162, 124, 255, 0.2);
+    margin-bottom: 10px;
+    background: radial-gradient(circle, rgba(162, 124, 255, 0.1) 0%, transparent 70%);
 }
