@@ -3,6 +3,8 @@
     --neon-purple: #a27cff;
     --neon-pink: #ff00ff;
     --deep-bg: #0f0f1a;
+    --card-bg: #161625;
+    --accent-border: rgba(162, 124, 255, 0.3);
 }
 
 * {
@@ -18,90 +20,122 @@ body {
     overflow-x: hidden;
 }
 
-/* --- HERO SECTION --- */
+/* ====================== HERO SECTION - MÁS CORTA ====================== */
 .gameplay-hero {
-    height: 85vh;
+    height: 55vh;                    /* Reducido significativamente */
+    min-height: 420px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(circle at center, rgba(162, 124, 255, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(162, 124, 255, 0.18) 0%, transparent 75%);
+    position: relative;
 }
 
 .hero-content {
     width: 100%;
-    max-width: 900px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 880px;
+    padding: 0 20px;
 }
 
 .glitch-text {
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-size: clamp(2.4rem, 7vw, 4.8rem);
     font-weight: 900;
     background: linear-gradient(to bottom, #fff, var(--neon-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    line-height: 1.05;
 }
 
-/* --- SECCIÓN MODOS DE JUEGO --- */
+.hero-badges {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.badge {
+    background: rgba(162, 124, 255, 0.15);
+    color: var(--neon-purple);
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid rgba(162, 124, 255, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    max-width: 720px;
+    margin: 0 auto;
+    opacity: 0.9;
+    line-height: 1.55;
+}
+
+/* ====================== CONTENEDOR PRINCIPAL ====================== */
 .main-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 5% 100px;
+    padding: 0 5% 110px;
 }
 
 .section-label {
-    font-size: 1.8rem;
-    margin: 40px 0 20px;
+    font-size: 1.85rem;
+    margin: 70px 0 28px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: var(--neon-purple);
+    font-weight: 700;
 }
 
-/* TARJETA PRINCIPAL */
+/* TARJETA PRINCIPAL - MODOS DE JUEGO */
 .bento-card-main {
-    background: #161625;
-    border: 1px solid rgba(162, 124, 255, 0.3);
-    border-radius: 35px;
-    padding: 60px 40px 50px;
+    background: var(--card-bg);
+    border: 1px solid var(--accent-border);
+    border-radius: 36px;
+    padding: 65px 45px 55px;
     position: relative;
     display: flex;
-    gap: 30px;
-    margin-top: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    gap: 35px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease;
 }
 
-/* ICONO FLOTANTE */
+.bento-card-main:hover {
+    box-shadow: 0 20px 55px rgba(162, 124, 255, 0.25);
+}
+
+/* Icono flotante */
 .floating-icon-main {
     position: absolute;
-    top: -30px;
-    left: -30px;
-    width: 90px;
-    height: 90px;
+    top: -35px;
+    left: -35px;
+    width: 95px;
+    height: 95px;
     background: var(--neon-purple);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 25px rgba(162, 124, 255, 0.5);
+    box-shadow: 0 0 30px rgba(162, 124, 255, 0.6);
     z-index: 10;
-    border: 5px solid var(--deep-bg);
+    border: 6px solid var(--deep-bg);
 }
 
 .floating-icon-main img {
-    width: 60%;
-    height: 60%;
+    width: 58%;
+    height: 58%;
     object-fit: contain;
 }
 
-/* CONTENIDO PRINCIPAL (SUPERVIVENCIA) */
+/* Supervivencia - Contenido principal */
 .main-content {
     flex: 1;
     background: #1a1a2e;
-    padding: 32px 28px;
-    border-radius: 24px;
+    padding: 34px 30px;
+    border-radius: 26px;
     border: 1px solid rgba(162, 124, 255, 0.25);
     min-width: 0;
 }
@@ -109,110 +143,119 @@ body {
 .main-content h3 {
     color: var(--neon-purple);
     margin-bottom: 14px;
-    font-size: 1.7rem;
+    font-size: 1.75rem;
 }
 
 .main-content p {
     color: #e0e0ff;
     line-height: 1.65;
+    font-size: 1.06rem;
 }
 
-/* TARJETAS SATÉLITE */
+/* Tarjetas satélite */
 .satellite-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    gap: 15px;
     flex-shrink: 0;
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
 }
 
 .s-card {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 22px 18px;
-    border-radius: 20px;
+    padding: 24px 20px;
+    border-radius: 22px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.35s ease;
 }
 
 .s-card:hover {
-    background: rgba(162, 124, 255, 0.1);
+    background: rgba(162, 124, 255, 0.12);
     border-color: var(--neon-purple);
+    transform: translateY(-4px);
 }
 
-/* --- SECCIÓN MECÁNICAS --- */
+/* Sección Mecánicas */
 .mechanics-section {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 80px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    margin-top: 85px;
 }
 
 .mechanic-card {
     background: rgba(255, 255, 255, 0.03);
-    padding: 35px 20px;
+    padding: 38px 25px;
     border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.07);
     text-align: center;
+    transition: all 0.4s ease;
+}
+
+.mechanic-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 40px rgba(162, 124, 255, 0.2);
+    border-color: rgba(162, 124, 255, 0.25);
 }
 
 .mech-icon-img {
-    height: 85px;
+    height: 88px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .mech-icon-img img {
     height: 100%;
-    filter: drop-shadow(0 0 10px rgba(162, 124, 255, 0.4));
+    filter: drop-shadow(0 0 12px rgba(162, 124, 255, 0.45));
 }
-
-/* ====================== SECCIONES QUE FALTABAN ====================== */
 
 /* MUNDO DINÁMICO */
 .rotation-banner {
-    margin-top: 80px;
-    background: #161625;
-    border-radius: 28px;
-    padding: 50px 40px;
+    margin-top: 90px;
+    background: var(--card-bg);
+    border-radius: 30px;
+    padding: 55px 45px;
     text-align: center;
-    border: 1px solid rgba(162, 124, 255, 0.2);
+    border: 1px solid rgba(162, 124, 255, 0.22);
 }
 
 .rotation-banner h2 {
     color: var(--neon-purple);
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: 2.1rem;
+    margin-bottom: 16px;
 }
 
 .rotation-banner p {
     color: #e0e0ff;
-    font-size: 1.1rem;
+    font-size: 1.12rem;
     line-height: 1.7;
+    max-width: 780px;
+    margin: 0 auto;
 }
 
-/* NOTA DEL EQUIPO (team-footer) */
+/* Nota del equipo */
 .team-footer {
-    margin-top: 60px;
+    margin-top: 70px;
     text-align: center;
 }
 
 .footer-card {
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(162, 124, 255, 0.15);
-    border-radius: 25px;
-    padding: 40px 30px;
-    max-width: 700px;
+    border: 1px solid rgba(162, 124, 255, 0.18);
+    border-radius: 28px;
+    padding: 45px 35px;
+    max-width: 720px;
     margin: 0 auto;
 }
 
 .footer-card p {
-    font-size: 1.15rem;
+    font-size: 1.18rem;
     font-style: italic;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     color: #ddd;
 }
 
@@ -221,17 +264,105 @@ body {
     font-weight: 600;
 }
 
-/* RESPONSIVE */
+/* ====================== SECCIÓN EXPLORE (Personajes y Cosas Futuras) ====================== */
+.explore-section {
+    margin-top: 95px;
+}
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
+}
+
+.explore-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(162, 124, 255, 0.28);
+    border-radius: 30px;
+    padding: 42px 35px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.explore-card:hover {
+    transform: translateY(-14px);
+    border-color: var(--neon-purple);
+    box-shadow: 0 25px 60px rgba(162, 124, 255, 0.3);
+}
+
+.explore-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(162, 124, 255, 0.08), transparent);
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+.explore-card:hover::before {
+    opacity: 1;
+}
+
+.card-icon {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 28px;
+    background: rgba(162, 124, 255, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.explore-card:hover .card-icon {
+    background: rgba(162, 124, 255, 0.28);
+    transform: scale(1.12) rotate(8deg);
+}
+
+.explore-card img {
+    width: 54%;
+    filter: drop-shadow(0 0 15px var(--neon-purple));
+}
+
+.explore-card h3 {
+    font-size: 1.9rem;
+    color: var(--neon-purple);
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.explore-card p {
+    color: #c0c0ff;
+    line-height: 1.65;
+    margin-bottom: 28px;
+}
+
+.explore-link {
+    color: var(--neon-purple);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.explore-link::after {
+    content: ' →';
+    margin-left: 6px;
+}
+
+/* ====================== RESPONSIVE ====================== */
 @media (max-width: 950px) {
     .bento-card-main {
         flex-direction: column;
-        padding: 75px 25px 40px;
-        gap: 25px;
+        padding: 80px 30px 50px;
+        gap: 30px;
     }
 
     .satellite-cards {
         grid-template-columns: 1fr 1fr;
-        width: 100%;
         max-width: none;
     }
 
@@ -240,151 +371,22 @@ body {
     }
 
     .mechanics-section {
-        grid-template-columns: 1fr;
-    }
-
-    .rotation-banner {
-        padding: 40px 25px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     .satellite-cards {
         grid-template-columns: 1fr;
     }
 
-    .bento-card-main {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
-
-
-/* ====================== NUEVA SECCIÓN EXPLORE ====================== */
-.explore-section {
-    margin-top: 90px;
-}
-
-.explore-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.explore-card {
-    background: #161625;
-    border: 1px solid rgba(162, 124, 255, 0.25);
-    border-radius: 28px;
-    padding: 40px 35px;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.explore-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(162, 124, 255, 0.15), transparent);
-    transition: 0.7s;
-}
-
-.explore-card:hover::before {
-    left: 200%;
-}
-
-.explore-card:hover {
-    transform: translateY(-12px);
-    border-color: var(--neon-purple);
-    box-shadow: 0 0 40px rgba(162, 124, 255, 0.35);
-}
-
-.card-icon {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 25px;
-    background: rgba(162, 124, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.4s;
-}
-
-.explore-card:hover .card-icon {
-    background: rgba(162, 124, 255, 0.25);
-    transform: scale(1.1);
-}
-
-.explore-card img {
-    width: 55%;
-    height: 55%;
-    filter: drop-shadow(0 0 12px var(--neon-purple));
-}
-
-.explore-card h3 {
-    font-size: 1.85rem;
-    color: var(--neon-purple);
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-}
-
-.explore-card p {
-    color: #c0c0ff;
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
-
-.explore-link {
-    color: var(--neon-purple);
-    font-weight: 600;
-    font-size: 1.05rem;
-    display: inline-block;
-    position: relative;
-}
-
-.explore-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background: var(--neon-purple);
-    transition: 0.3s;
-}
-
-.explore-card:hover .explore-link::after {
-    width: 100%;
-}
-
-/* Mejoras generales al diseño actual (más pulido) */
-.bento-card-main,
-.mechanic-card,
-.rotation-banner,
-.footer-card {
-    transition: all 0.4s ease;
-}
-
-.bento-card-main:hover,
-.mechanic-card:hover {
-    box-shadow: 0 0 45px rgba(162, 124, 255, 0.25);
-}
-
-/* Ajuste responsive para las nuevas tarjetas */
-@media (max-width: 700px) {
     .explore-grid {
         grid-template-columns: 1fr;
     }
-    
-    .explore-card {
-        padding: 35px 25px;
+
+    .bento-card-main,
+    .rotation-banner {
+        padding-left: 25px;
+        padding-right: 25px;
     }
 }
