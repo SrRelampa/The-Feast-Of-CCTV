@@ -2,9 +2,10 @@
 :root {
     --neon-purple: #a27cff;
     --neon-pink: #ff00ff;
-    --deep-bg: #0f0f1a;
-    --card-bg: #161625;
-    --accent-border: rgba(162, 124, 255, 0.3);
+    --deep-bg: #0a0a14;
+    --card-bg: #141424;
+    --glass: rgba(30, 30, 50, 0.75);
+    --accent-border: rgba(162, 124, 255, 0.4);
 }
 
 * {
@@ -14,379 +15,357 @@
 }
 
 body {
-    background-color: var(--deep-bg);
+    background: linear-gradient(to bottom, #0a0a14, #0f0f1a);
     color: white;
     font-family: 'Segoe UI', system-ui, sans-serif;
     overflow-x: hidden;
 }
 
-/* ====================== HERO SECTION - MÁS CORTA ====================== */
+/* ====================== HERO - MÁS IMPACTANTE ====================== */
 .gameplay-hero {
-    height: 55vh;                    /* Reducido significativamente */
-    min-height: 420px;
+    height: 58vh;
+    min-height: 460px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(circle at center, rgba(162, 124, 255, 0.18) 0%, transparent 75%);
     position: relative;
+    overflow: hidden;
+    background: 
+        radial-gradient(circle at 50% 30%, rgba(162, 124, 255, 0.25) 0%, transparent 70%),
+        linear-gradient(180deg, rgba(10,10,20,0.9), transparent);
+}
+
+.gameplay-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%272%27 fill=%27%23a27cff%27 opacity=%270.08%27/%3E%3C/svg%27') repeat;
+    background-size: 80px 80px;
+    animation: subtle-grid 25s linear infinite;
+}
+
+@keyframes subtle-grid {
+    from { background-position: 0 0; }
+    to { background-position: 80px 80px; }
 }
 
 .hero-content {
-    width: 100%;
-    max-width: 880px;
+    z-index: 2;
+    max-width: 900px;
     padding: 0 20px;
 }
 
 .glitch-text {
-    font-size: clamp(2.4rem, 7vw, 4.8rem);
+    font-size: clamp(2.8rem, 8.5vw, 5.2rem);
     font-weight: 900;
-    background: linear-gradient(to bottom, #fff, var(--neon-purple));
+    background: linear-gradient(90deg, #fff, var(--neon-purple), #fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 16px;
-    line-height: 1.05;
+    margin-bottom: 18px;
+    text-shadow: 0 0 30px rgba(162, 124, 255, 0.6);
+    animation: glitch 3s infinite alternate;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
 }
 
 .hero-badges {
     display: flex;
-    gap: 12px;
+    gap: 14px;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 20px 0;
+    margin: 22px 0 24px;
 }
 
 .badge {
-    background: rgba(162, 124, 255, 0.15);
+    background: rgba(162, 124, 255, 0.12);
+    backdrop-filter: blur(10px);
     color: var(--neon-purple);
-    padding: 6px 18px;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    border: 1px solid rgba(162, 124, 255, 0.3);
+    padding: 8px 22px;
+    border-radius: 50px;
+    font-size: 0.98rem;
+    font-weight: 700;
+    border: 1px solid rgba(162, 124, 255, 0.4);
+    box-shadow: 0 0 15px rgba(162, 124, 255, 0.3);
 }
 
 .hero-subtitle {
-    font-size: 1.15rem;
-    max-width: 720px;
+    font-size: 1.22rem;
+    max-width: 740px;
     margin: 0 auto;
-    opacity: 0.9;
-    line-height: 1.55;
+    line-height: 1.6;
+    opacity: 0.92;
 }
 
-/* ====================== CONTENEDOR PRINCIPAL ====================== */
+/* ====================== TARJETA PRINCIPAL - MÁS PREMIUM ====================== */
 .main-container {
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
-    padding: 0 5% 110px;
+    padding: 0 5% 120px;
 }
 
 .section-label {
-    font-size: 1.85rem;
-    margin: 70px 0 28px;
+    font-size: 2rem;
+    margin: 80px 0 32px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     color: var(--neon-purple);
-    font-weight: 700;
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(162, 124, 255, 0.5);
 }
 
-/* TARJETA PRINCIPAL - MODOS DE JUEGO */
+/* Bento Card Mejorada */
 .bento-card-main {
     background: var(--card-bg);
     border: 1px solid var(--accent-border);
-    border-radius: 36px;
-    padding: 65px 45px 55px;
+    border-radius: 40px;
+    padding: 80px 50px 60px;
     position: relative;
     display: flex;
-    gap: 35px;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
-    transition: all 0.4s ease;
+    gap: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
+                inset 0 0 60px rgba(162, 124, 255, 0.08);
+    transition: all 0.5s ease;
 }
 
 .bento-card-main:hover {
-    box-shadow: 0 20px 55px rgba(162, 124, 255, 0.25);
+    box-shadow: 0 30px 80px rgba(162, 124, 255, 0.3),
+                inset 0 0 80px rgba(162, 124, 255, 0.12);
+    transform: translateY(-8px);
 }
 
-/* Icono flotante */
+/* ICONO FLOTANTE - AÚN MÁS GRANDE Y BRILLANTE */
 .floating-icon-main {
     position: absolute;
-    top: -35px;
-    left: -35px;
-    width: 95px;
-    height: 95px;
-    background: var(--neon-purple);
+    top: -55px;
+    left: -55px;
+    width: 145px;
+    height: 145px;
+    background: linear-gradient(135deg, #a27cff, #c49fff);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 30px rgba(162, 124, 255, 0.6);
+    box-shadow: 
+        0 0 50px rgba(162, 124, 255, 0.9),
+        0 0 80px rgba(162, 124, 255, 0.4);
     z-index: 10;
-    border: 6px solid var(--deep-bg);
+    border: 8px solid var(--deep-bg);
+    transition: transform 0.4s ease;
+}
+
+.bento-card-main:hover .floating-icon-main {
+    transform: scale(1.08) rotate(8deg);
 }
 
 .floating-icon-main img {
-    width: 58%;
-    height: 58%;
+    width: 68%;
+    height: 68%;
     object-fit: contain;
+    filter: brightness(1.15) drop-shadow(0 0 15px white);
 }
 
-/* Supervivencia - Contenido principal */
+/* Resto del contenido (Supervivencia) */
 .main-content {
     flex: 1;
-    background: #1a1a2e;
-    padding: 34px 30px;
-    border-radius: 26px;
-    border: 1px solid rgba(162, 124, 255, 0.25);
-    min-width: 0;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    padding: 36px 32px;
+    border-radius: 28px;
+    border: 1px solid rgba(162, 124, 255, 0.3);
 }
 
 .main-content h3 {
     color: var(--neon-purple);
-    margin-bottom: 14px;
-    font-size: 1.75rem;
+    margin-bottom: 16px;
+    font-size: 1.85rem;
+    text-shadow: 0 0 15px currentColor;
 }
 
 .main-content p {
     color: #e0e0ff;
-    line-height: 1.65;
-    font-size: 1.06rem;
+    line-height: 1.7;
+    font-size: 1.08rem;
 }
 
-/* Tarjetas satélite */
+/* Satellite Cards */
 .satellite-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 16px;
     flex-shrink: 0;
-    width: 100%;
-    max-width: 340px;
+    max-width: 360px;
 }
 
 .s-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 24px 20px;
-    border-radius: 22px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 26px 22px;
+    border-radius: 24px;
     text-align: center;
-    transition: all 0.35s ease;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px);
 }
 
 .s-card:hover {
-    background: rgba(162, 124, 255, 0.12);
+    background: rgba(162, 124, 255, 0.15);
     border-color: var(--neon-purple);
-    transform: translateY(-4px);
+    transform: translateY(-6px) scale(1.03);
 }
 
-/* Sección Mecánicas */
+/* Mecánicas */
 .mechanics-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 28px;
-    margin-top: 85px;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 30px;
+    margin-top: 90px;
 }
 
 .mechanic-card {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 38px 25px;
-    border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    padding: 42px 28px;
+    border-radius: 34px;
+    border: 1px solid rgba(255,255,255,0.08);
     text-align: center;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
 }
 
 .mechanic-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 40px rgba(162, 124, 255, 0.2);
-    border-color: rgba(162, 124, 255, 0.25);
+    transform: translateY(-12px);
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 50px rgba(162, 124, 255, 0.25);
 }
 
-.mech-icon-img {
-    height: 88px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.mech-icon-img img {
-    height: 100%;
-    filter: drop-shadow(0 0 12px rgba(162, 124, 255, 0.45));
-}
-
-/* MUNDO DINÁMICO */
-.rotation-banner {
-    margin-top: 90px;
-    background: var(--card-bg);
-    border-radius: 30px;
-    padding: 55px 45px;
-    text-align: center;
-    border: 1px solid rgba(162, 124, 255, 0.22);
-}
-
-.rotation-banner h2 {
-    color: var(--neon-purple);
-    font-size: 2.1rem;
-    margin-bottom: 16px;
-}
-
-.rotation-banner p {
-    color: #e0e0ff;
-    font-size: 1.12rem;
-    line-height: 1.7;
-    max-width: 780px;
-    margin: 0 auto;
-}
-
-/* Nota del equipo */
-.team-footer {
-    margin-top: 70px;
-    text-align: center;
-}
-
-.footer-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(162, 124, 255, 0.18);
-    border-radius: 28px;
-    padding: 45px 35px;
-    max-width: 720px;
-    margin: 0 auto;
-}
-
-.footer-card p {
-    font-size: 1.18rem;
-    font-style: italic;
-    margin-bottom: 18px;
-    color: #ddd;
-}
-
-.brand-signature {
-    color: var(--neon-purple);
-    font-weight: 600;
-}
-
-/* ====================== SECCIÓN EXPLORE (Personajes y Cosas Futuras) ====================== */
+/* Explore Section - Personajes y Cosas Futuras */
 .explore-section {
-    margin-top: 95px;
+    margin-top: 100px;
 }
 
 .explore-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 35px;
 }
 
 .explore-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(162, 124, 255, 0.28);
-    border-radius: 30px;
-    padding: 42px 35px;
+    background: var(--glass);
+    border: 1px solid rgba(162, 124, 255, 0.35);
+    border-radius: 32px;
+    padding: 48px 38px;
     text-align: center;
     text-decoration: none;
     color: white;
-    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     position: relative;
     overflow: hidden;
-}
-
-.explore-card:hover {
-    transform: translateY(-14px);
-    border-color: var(--neon-purple);
-    box-shadow: 0 25px 60px rgba(162, 124, 255, 0.3);
 }
 
 .explore-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, transparent, rgba(162, 124, 255, 0.08), transparent);
+    background: linear-gradient(135deg, transparent 40%, rgba(162,124,255,0.15) 50%, transparent);
     opacity: 0;
-    transition: opacity 0.6s;
+    transition: 0.6s;
 }
 
 .explore-card:hover::before {
     opacity: 1;
+    transform: translateX(30%);
+}
+
+.explore-card:hover {
+    transform: translateY(-18px) scale(1.02);
+    border-color: var(--neon-purple);
+    box-shadow: 0 30px 70px rgba(162, 124, 255, 0.35);
 }
 
 .card-icon {
-    width: 96px;
-    height: 96px;
-    margin: 0 auto 28px;
-    background: rgba(162, 124, 255, 0.12);
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 32px;
+    background: rgba(162, 124, 255, 0.15);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s ease;
+    transition: 0.5s;
 }
 
 .explore-card:hover .card-icon {
-    background: rgba(162, 124, 255, 0.28);
-    transform: scale(1.12) rotate(8deg);
+    transform: scale(1.15) rotate(10deg);
+    background: rgba(162, 124, 255, 0.3);
 }
 
 .explore-card img {
-    width: 54%;
-    filter: drop-shadow(0 0 15px var(--neon-purple));
+    width: 58%;
+    filter: drop-shadow(0 0 20px var(--neon-purple));
 }
 
 .explore-card h3 {
-    font-size: 1.9rem;
+    font-size: 2rem;
     color: var(--neon-purple);
-    margin-bottom: 14px;
-    letter-spacing: 0.5px;
+    margin-bottom: 16px;
 }
 
 .explore-card p {
-    color: #c0c0ff;
-    line-height: 1.65;
-    margin-bottom: 28px;
+    color: #c8c8ff;
+    line-height: 1.7;
+    margin-bottom: 32px;
 }
 
-.explore-link {
+/* Resto de secciones (Mundo Dinámico y Footer) */
+.rotation-banner, .footer-card {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(162, 124, 255, 0.25);
+    border-radius: 32px;
+}
+
+.rotation-banner {
+    margin-top: 95px;
+    padding: 60px 50px;
+    text-align: center;
+}
+
+.rotation-banner h2 {
+    font-size: 2.3rem;
     color: var(--neon-purple);
-    font-weight: 700;
-    font-size: 1.1rem;
+    margin-bottom: 18px;
 }
 
-.explore-link::after {
-    content: ' →';
-    margin-left: 6px;
-}
-
-/* ====================== RESPONSIVE ====================== */
-@media (max-width: 950px) {
+/* Responsive */
+@media (max-width: 980px) {
     .bento-card-main {
         flex-direction: column;
-        padding: 80px 30px 50px;
-        gap: 30px;
+        padding: 90px 35px 55px;
+        gap: 35px;
     }
-
+    
+    .floating-icon-main {
+        top: -48px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 125px;
+        height: 125px;
+    }
+    
     .satellite-cards {
-        grid-template-columns: 1fr 1fr;
         max-width: none;
-    }
-
-    .main-content {
-        text-align: center;
-    }
-
-    .mechanics-section {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 }
 
-@media (max-width: 650px) {
-    .satellite-cards {
+@media (max-width: 680px) {
+    .explore-grid,
+    .mechanics-section {
         grid-template-columns: 1fr;
-    }
-
-    .explore-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .bento-card-main,
-    .rotation-banner {
-        padding-left: 25px;
-        padding-right: 25px;
     }
 }
