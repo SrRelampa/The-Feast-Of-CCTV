@@ -325,10 +325,10 @@ body {
 
 .floating-icon-main {
     position: absolute;
-    top: -48px;
-    left: -48px;
-    width: 118px;
-    height: 118px;
+    top: -44px;
+    left: 44px;
+    width: 110px;
+    height: 110px;
     background: linear-gradient(135deg, #a27cff, #d0b0ff);
     border-radius: 50%;
     display: flex;
@@ -751,11 +751,12 @@ body {
     }
 
     .floating-icon-main {
-        top: -46px;
+        top: -44px;
         left: 50%;
         transform: translateX(-50%);
-        width: 115px;
-        height: 115px;
+        width: 110px;
+        height: 110px;
+        animation: none;
     }
 }
 
