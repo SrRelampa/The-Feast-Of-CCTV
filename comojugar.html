@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CCTV Corporation | Información</title>
+  <title>CCTV Corporation | InformaciÃ³n</title>
   <link rel="stylesheet" href="Css/estilos.css">
   <link rel="stylesheet" href="Css/informacion.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -20,7 +23,7 @@
         <li class="has-submenu">
           <span class="parent-title">El Juego</span>
           <ul class="submenu">
-            <li><a href="comojugar.html">Información</a></li>
+            <li><a href="comojugar.html">InformaciÃ³n</a></li>
             <li><a href="Personajes.html">Personajes</a></li>
             <li><a href="powerups.html">Cosas Futuras</a></li>
           </ul>
@@ -32,97 +35,116 @@
 
   <main class="gameplay-page">
     <section class="gameplay-hero">
-        <div class="hero-content">
-            <h1 class="glitch-text">THE FEAST EXPERIENCE</h1>
-            <div class="hero-badges">
-                <span class="badge">Multijugador</span>
-                <span class="badge">Acción</span>
-                <span class="badge">Estrategia</span>
-            </div>
-            <p class="hero-subtitle">Un Battle Royale donde la comida conserva su humanidad... y su instinto de supervivencia.</p>
+      <div class="hero-bg-grid"></div>
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+
+      <div class="hero-content">
+        <p class="hero-tagline">CCTV Corporation Presenta</p>
+        <h1 class="glitch-text" data-text="THE FEAST EXPERIENCE">THE FEAST EXPERIENCE</h1>
+        <div class="hero-badges">
+          <span class="badge">Multijugador</span>
+          <span class="badge">AcciÃ³n</span>
+          <span class="badge">Estrategia</span>
         </div>
+        <p class="hero-subtitle">Un Battle Royale donde la comida conserva su humanidad... y su instinto de supervivencia.</p>
+        <div class="hero-cta-group">
+          <a href="Registro.html" class="btn-primary">Jugar Ahora</a>
+          <a href="comojugar.html" class="btn-outline">Ver Gameplay</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
     </section>
+
+    <div id="particles"></div>
 
     <div class="main-container">
-        <section class="bento-section">
-            <h2 class="section-label">MODOS DE JUEGO</h2>
-            
-            <div class="bento-card-main">
-                <div class="floating-icon-main">
-                    <img src="Img/Iconos/corona.png" alt="Icono" class="custom-icon">
-                </div>
-                
-                <div class="main-content">
-                    <h3>Supervivencia</h3>
-                    <p>12 Jugadores compitiendo en tiempo real. Un solo destino: ser el último ingrediente en pie en la arena definitiva.</p>
-                </div>
+      <section class="bento-section">
+        <h2 class="section-label">Modos de Juego</h2>
 
-                <div class="satellite-cards">
-                    <div class="s-card"><div class="s-info"><h4>Solitario</h4><p>1v11</p></div></div>
-                    <div class="s-card"><div class="s-info"><h4>Duo</h4><p>6 Equipos</p></div></div>
-                    <div class="s-card"><div class="s-info"><h4>Trio</h4><p>4 Equipos</p></div></div>
-                    <div class="s-card"><div class="s-info"><h4>Squad</h4><p>3 Equipos</p></div></div>
-                </div>
-            </div>
-        </section>
+        <div class="bento-card-main">
+          <div class="floating-icon-main">
+            <img src="Img/Iconos/corona.png" alt="Icono" class="custom-icon">
+          </div>
 
-        <section class="mechanics-section">
-            <div class="mechanic-card">
-                <div class="mech-icon-img"><img src="Img/Iconos/cubo_energia.png" alt="Energía"></div>
-                <h3>Cubos de Energía</h3>
-                <p>Rompe cajas o derrota enemigos. Cada cubo potencia tus estadísticas en tiempo real.</p>
-            </div>
-            <div class="mechanic-card">
-                <div class="mech-icon-img"><img src="Img/Iconos/Trofeo.png" alt="Trofeos"></div>
-                <h3>Camino de Trofeos</h3>
-                <p>Gana partidas, escala en el ranking y desbloquea guerreros legendarios.</p>
-            </div>
-            <div class="mechanic-card">
-                <div class="mech-icon-img"><img src="Img/Iconos/ulti.png" alt="Ulti"></div>
-                <h3>Carga tu Ulti</h3>
-                <p>Cada impacto carga tu habilidad definitiva. Úsala en el momento justo para ganar.</p>
-            </div>
-        </section>
+          <div class="main-content">
+            <h3>Supervivencia</h3>
+            <p>12 Jugadores compitiendo en tiempo real. Un solo destino: ser el Ãºltimo ingrediente en pie en la arena definitiva.</p>
+          </div>
 
-        <section class="rotation-banner">
-            <div class="banner-content">
-                <h2>MUNDO DINÁMICO</h2>
-                <p>Rotación constante de Mapas, Ambientaciones y Modificadores.</p>
-            </div>
-        </section>
-<section class="explore-section">
-        <h2 class="section-label">EXPLORA EL JUEGO</h2>
+          <div class="satellite-cards">
+            <div class="s-card"><div class="s-info"><h4>Solitario</h4><p>1v11</p></div></div>
+            <div class="s-card"><div class="s-info"><h4>Duo</h4><p>6 Equipos</p></div></div>
+            <div class="s-card"><div class="s-info"><h4>Trio</h4><p>4 Equipos</p></div></div>
+            <div class="s-card"><div class="s-info"><h4>Squad</h4><p>3 Equipos</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mechanics-section">
+        <div class="mechanic-card">
+          <div class="mech-icon-img"><img src="Img/Iconos/cubo_energia.png" alt="EnergÃ­a"></div>
+          <h3>Cubos de EnergÃ­a</h3>
+          <p>Rompe cajas o derrota enemigos. Cada cubo potencia tus estadÃ­sticas en tiempo real.</p>
+        </div>
+        <div class="mechanic-card">
+          <div class="mech-icon-img"><img src="Img/Iconos/Trofeo.png" alt="Trofeos"></div>
+          <h3>Camino de Trofeos</h3>
+          <p>Gana partidas, escala en el ranking y desbloquea guerreros legendarios.</p>
+        </div>
+        <div class="mechanic-card">
+          <div class="mech-icon-img"><img src="Img/Iconos/ulti.png" alt="Ulti"></div>
+          <h3>Carga tu Ulti</h3>
+          <p>Cada impacto carga tu habilidad definitiva. Ãšsala en el momento justo para ganar.</p>
+        </div>
+      </section>
+
+      <section class="rotation-banner">
+        <div class="banner-inner">
+          <div class="banner-pill">Siempre Fresco</div>
+          <h2>MUNDO DINÃMICO</h2>
+          <p>RotaciÃ³n constante de Mapas, Ambientaciones y Modificadores.</p>
+          <div class="banner-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="explore-section">
+        <h2 class="section-label">Explora el Juego</h2>
         <div class="explore-grid">
-            
-            <!-- Tarjeta Personajes -->
-            <a href="Personajes.html" class="explore-card characters-card">
-                <div class="card-icon">
-                    <img src="Img/Iconos/personajes-icon.png" alt="Personajes">
-                </div>
-                <h3>PERSONAJES</h3>
-                <p>Descubre a todos los guerreros comestibles, sus habilidades y lore.</p>
-                <span class="explore-link">Ver Personajes →</span>
-            </a>
 
-            <!-- Tarjeta Cosas Futuras -->
-            <a href="powerups.html" class="explore-card future-card">
-                <div class="card-icon">
-                    <img src="Img/Iconos/futuro-icon.png" alt="Cosas Futuras">
-                </div>
-                <h3>COSAS FUTURAS</h3>
-                <p>Power-ups, mapas nuevos, modos en desarrollo y más contenido por venir.</p>
-                <span class="explore-link">Ver Roadmap →</span>
-            </a>
+          <a href="Personajes.html" class="explore-card characters-card">
+            <div class="card-icon">
+              <img src="Img/Iconos/personajes-icon.png" alt="Personajes">
+            </div>
+            <h3>PERSONAJES</h3>
+            <p>Descubre a todos los guerreros comestibles, sus habilidades y lore.</p>
+            <span class="explore-link">Ver Personajes â†’</span>
+          </a>
+
+          <a href="powerups.html" class="explore-card future-card">
+            <div class="card-icon">
+              <img src="Img/Iconos/futuro-icon.png" alt="Cosas Futuras">
+            </div>
+            <h3>COSAS FUTURAS</h3>
+            <p>Power-ups, mapas nuevos, modos en desarrollo y mÃ¡s contenido por venir.</p>
+            <span class="explore-link">Ver Roadmap â†’</span>
+          </a>
 
         </div>
-    </section>
+      </section>
 
-        <section class="team-footer">
-            <div class="footer-card">
-                <p>"Nos esforzaremos por dar una experiencia agradable."</p>
-                <span class="brand-signature">— Equipo CCTV Corporation</span>
-            </div>
-        </section>
+      <section class="team-footer">
+        <div class="footer-card">
+          <p>"Nos esforzaremos por dar una experiencia agradable."</p>
+          <span class="brand-signature">â€” Equipo CCTV Corporation</span>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -132,8 +154,8 @@
         <img src="Img/Logo_Empresa.png" alt="CCTV Studios" class="footer-logo">         
         <div class="contact-info">
           <h4>CONTACTO EMPRESARIAL</h4>
-          <p><span class="icon">📞</span> 6692239261</p>
-          <p><span class="icon">✉️</span> contacto@thefeastofcctv.com</p>
+          <p><span class="icon">ðŸ“ž</span> 6692239261</p>
+          <p><span class="icon">âœ‰ï¸</span> contacto@thefeastofcctv.com</p>
         </div>
       </div>
 
@@ -149,9 +171,38 @@
     </div>
 
     <div class="footer-bottom">
-      © 2026 CCTV Corporation | Desarrollado con imaginación 
+      Â© 2026 CCTV Corporation | Desarrollado con imaginaciÃ³n 
     </div>
   </footer>
+
+  <script>
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 35; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDuration = (6 + Math.random() * 10) + 's';
+      p.style.animationDelay = (Math.random() * 12) + 's';
+      p.style.width = p.style.height = (1 + Math.random() * 2.5) + 'px';
+      container.appendChild(p);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.mechanic-card, .explore-card, .bento-card-main, .rotation-banner, .footer-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease, border-color 0.4s, box-shadow 0.4s';
+      observer.observe(el);
+    });
+  </script>
 
 </body>
 </html>
