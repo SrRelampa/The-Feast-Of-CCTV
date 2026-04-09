@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CCTV Corporation | Inicio</title>
+  <title>CCTV Corporation | Personajes</title>
   <link rel="stylesheet" href="Css/estilos.css">
   <link rel="stylesheet" href="Css/personajes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="dark-page">
+
+  <div id="particles-char"></div>
 
   <header class="kyamo">
     <div class="left">
       <img src="Img/Logo_Empresa.png" class="logo" alt="Logo CCTV Studios">
       <h2 class="brand-name">CCTV Corporation</h2>
     </div>
-
     <nav>
       <ul class="main-menu">
         <li><a href="index.html">Inicio</a></li>
@@ -31,96 +35,177 @@
     </nav>
   </header>
 
+  <main class="characters-page">
 
-<main class="characters-page">
-    <h1 class="section-title">Foodders</h1>
-    
-    <div class="characters-grid">
+    <section class="chars-hero">
+      <div class="chars-hero-bg"></div>
+      <div class="chars-hero-orb orb-a"></div>
+      <div class="chars-hero-orb orb-b"></div>
+      <div class="chars-hero-content">
+        <p class="chars-eyebrow">The Feast Of CCTV</p>
+        <h1 class="chars-title">FOODDERS</h1>
+        <p class="chars-subtitle">Los guerreros comestibles que luchan por su supervivencia. Cada uno con habilidades únicas.</p>
+      </div>
+    </section>
+
+    <div class="chars-container">
+      <h2 class="chars-section-label">Personajes Disponibles</h2>
+
+      <div class="characters-grid">
+
         <div class="char-card apple">
-            <div class="char-header">
-                <span class="rarity">COMÚN / INICIAL</span>
-                <h2>Manzana</h2>
+          <div class="char-rarity-bar apple-bar"></div>
+          <div class="char-header">
+            <span class="rarity rarity-common">COMÚN / INICIAL</span>
+            <h2>Manzana</h2>
+            <p class="char-type">⚔️ Cuerpo a Cuerpo</p>
+          </div>
+          <div class="char-img-container">
+            <div class="char-glow apple-glow"></div>
+            <img src="Img/Personajes/Manzana.png" alt="Manzana" class="char-portrait">
+          </div>
+          <div class="char-body">
+            <div class="char-stats">
+              <div class="stat-row">
+                <span class="stat-label">❤️ HP</span>
+                <div class="stat-bar-wrap"><div class="stat-bar" style="width:80%;background:linear-gradient(to right,#ff4d4d,#ff8080)"></div></div>
+                <span class="stat-val">3,200</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-label">⚔️ Daño</span>
+                <div class="stat-bar-wrap"><div class="stat-bar" style="width:55%;background:linear-gradient(to right,#ff9f43,#ffcc80)"></div></div>
+                <span class="stat-val">550</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-label">🔫 Munición</span>
+                <div class="stat-bar-wrap"><div class="stat-bar" style="width:30%;background:linear-gradient(to right,#a29bfe,#d0b0ff)"></div></div>
+                <span class="stat-val">3</span>
+              </div>
             </div>
-            
-            <div class="char-img-container">
-                <img src="Img/Personajes/Manzana.png" alt="Manzana" class="char-portrait">
+            <div class="char-skills">
+              <div class="skill-block">
+                <h3 class="skill-title">Ataque Principal</h3>
+                <p>Espadazo de izquierda a derecha en corto alcance.</p>
+              </div>
+              <div class="skill-block super-block">
+                <h3 class="super-title">⚡ SÚPER (Ulti)</h3>
+                <p><strong>Terremoto:</strong> Daño de 500 en área circular extensa.</p>
+                <span class="charge-badge">Carga: 8 ataques</span>
+              </div>
             </div>
-
-            <div class="char-body">
-                <div class="char-stats">
-                    <p>❤️ <strong>HP:</strong> 3,200 | ⚔️ <strong>Daño:</strong> 550</p>
-                    <p>🔫 <strong>Munición:</strong> 3 | 🏃 <strong>Tipo:</strong> Cuerpo a Cuerpo</p>
-                </div>
-                <div class="char-skills">
-                    <h3>Ataque Principal</h3>
-                    <p>Espadazo de izquierda a derecha en corto alcance.</p>
-                    <h3 class="super-title">⚡ SÚPER (Ulti)</h3>
-                    <p><strong>Terremoto:</strong> Daño de 500 en área circular extensa. (Carga: 8 ataques)</p>
-                </div>
-            </div>
+          </div>
         </div>
 
         <div class="char-card pear">
-            <div class="char-header">
-                <span class="rarity">COMÚN</span>
-                <h2>Pera</h2>
+          <div class="char-rarity-bar pear-bar"></div>
+          <div class="char-header">
+            <span class="rarity rarity-common">COMÚN</span>
+            <h2>Pera</h2>
+            <p class="char-type">🛡️ Apoyo</p>
+          </div>
+          <div class="char-img-container">
+            <div class="char-glow pear-glow"></div>
+            <img src="Img/Personajes/Pera.png" alt="Pera" class="char-portrait">
+          </div>
+          <div class="char-body">
+            <div class="char-stats">
+              <div class="stat-row">
+                <span class="stat-label">❤️ HP</span>
+                <div class="stat-bar-wrap"><div class="stat-bar" style="width:50%;background:linear-gradient(to right,#ff4d4d,#ff8080)"></div></div>
+                <span class="stat-val">2,000</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-label">⚔️ Daño</span>
+                <div class="stat-bar-wrap"><div class="stat-bar" style="width:55%;background:linear-gradient(to right,#ff9f43,#ffcc80)"></div></div>
+                <span class="stat-val">550</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-label">🔫 Munición</span>
+                <div class="stat-bar-wrap"><div class="stat-bar" style="width:30%;background:linear-gradient(to right,#a29bfe,#d0b0ff)"></div></div>
+                <span class="stat-val">3</span>
+              </div>
             </div>
-
-            <div class="char-img-container">
-                <img src="Img/Personajes/Pera.png" alt="Pera" class="char-portrait">
+            <div class="char-skills">
+              <div class="skill-block">
+                <h3 class="skill-title">Ataque Principal</h3>
+                <p>Carga de energía ancha en línea recta (alcance medio).</p>
+              </div>
+              <div class="skill-block super-block">
+                <h3 class="super-title">⚡ SÚPER (Ulti)</h3>
+                <p><strong>Sombra Protectora:</strong> Invoca sombra con 3,200 HP.</p>
+                <span class="charge-badge">Carga: 5 ataques</span>
+              </div>
             </div>
-
-            <div class="char-body">
-                <div class="char-stats">
-                    <p>❤️ <strong>HP:</strong> 2,000 | ⚔️ <strong>Daño:</strong> 550</p>
-                    <p>🔫 <strong>Munición:</strong> 3 | 🛡️ <strong>Tipo:</strong> Apoyo</p>
-                </div>
-                <div class="char-skills">
-                    <h3>Ataque Principal</h3>
-                    <p>Carga de energía ancha en línea recta (alcance medio).</p>
-                    <h3 class="super-title">⚡ SÚPER (Ulti)</h3>
-                    <p><strong>Sombra Protectora:</strong> Invoca sombra (3,200 HP). (Carga: 5 ataques)</p>
-                </div>
-            </div>
+          </div>
         </div>
 
         <div class="char-card blueberry">
-            <div class="char-header">
-                <span class="rarity">COMÚN</span>
-                <h2>Arándano</h2>
+          <div class="char-rarity-bar berry-bar"></div>
+          <div class="char-header">
+            <span class="rarity rarity-common">COMÚN</span>
+            <h2>Arándano</h2>
+            <p class="char-type">🎯 Tiro de Élite</p>
+          </div>
+          <div class="char-img-container">
+            <div class="char-glow berry-glow"></div>
+            <img src="Img/Personajes/Arandano.png" alt="Arándano" class="char-portrait">
+          </div>
+          <div class="char-body">
+            <div class="char-stats">
+              <div class="stat-row">
+                <span class="stat-label">❤️ HP</span>
+                <div class="stat-bar-wrap"><div class="stat-bar" style="width:75%;background:linear-gradient(to right,#ff4d4d,#ff8080)"></div></div>
+                <span class="stat-val">3,000</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-label">⚔️ Daño</span>
+                <div class="stat-bar-wrap"><div class="stat-bar" style="width:50%;background:linear-gradient(to right,#ff9f43,#ffcc80)"></div></div>
+                <span class="stat-val">500×3</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-label">🔫 Munición</span>
+                <div class="stat-bar-wrap"><div class="stat-bar" style="width:30%;background:linear-gradient(to right,#a29bfe,#d0b0ff)"></div></div>
+                <span class="stat-val">3</span>
+              </div>
             </div>
-
-            <div class="char-img-container">
-                <img src="Img/Personajes/Arandano.png" alt="Arándano" class="char-portrait">
+            <div class="char-skills">
+              <div class="skill-block">
+                <h3 class="skill-title">Ataque Principal</h3>
+                <p>Lanza 3 mini arándanos en línea recta de mediano alcance.</p>
+              </div>
+              <div class="skill-block super-block">
+                <h3 class="super-title">⚡ SÚPER (Ulti)</h3>
+                <p><strong>Sobrecarga:</strong> Daño de 1000 que atraviesa enemigos.</p>
+                <span class="charge-badge">Carga: 9 balas</span>
+              </div>
             </div>
-
-            <div class="char-body">
-                <div class="char-stats">
-                    <p>❤️ <strong>HP:</strong> 3,000 | ⚔️ <strong>Daño:</strong> 500 x3</p>
-                    <p>🔫 <strong>Munición:</strong> 3 | 🎯 <strong>Tipo:</strong> Tiro de Élite</p>
-                </div>
-                <div class="char-skills">
-                    <h3>Ataque Principal</h3>
-                    <p>Lanza 3 mini arándanos en línea recta de mediano alcance.</p>
-                    <h3 class="super-title">⚡ SÚPER (Ulti)</h3>
-                    <p><strong>Sobrecarga:</strong> Daño de 1000 que atraviesa enemigos. (Carga: 9 balas)</p>
-                </div>
-            </div>
+          </div>
         </div>
+
+      </div>
+
+      <div class="coming-soon-banner">
+        <div class="csb-inner">
+          <span class="csb-pill">En Desarrollo</span>
+          <h3>Más Personajes Próximamente</h3>
+          <p>Nuevos Foodders se están preparando para unirse a la batalla.</p>
+          <a href="powerups.html" class="csb-btn">Ver Cosas Futuras →</a>
+        </div>
+      </div>
+
     </div>
-</main>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-wrapper">
       <div class="footer-column left">
-        <img src="Img/Logo_Empresa.png" alt="CCTV Studios" class="footer-logo">         
+        <img src="Img/Logo_Empresa.png" alt="CCTV Studios" class="footer-logo">
         <div class="contact-info">
           <h4>CONTACTO EMPRESARIAL</h4>
           <p><span class="icon">📞</span> 6692239261</p>
           <p><span class="icon">✉️</span> contacto@thefeastofcctv.com</p>
         </div>
       </div>
-
       <div class="footer-column right">
         <h4>REDES SOCIALES</h4>
         <div class="social-icons">
@@ -131,11 +216,37 @@
         </div>
       </div>
     </div>
-
     <div class="footer-bottom">
-      © 2026 CCTV Corporation | Desarrollado con imaginación 
+      &copy; 2026 CCTV Corporation | Desarrollado con imaginación
     </div>
   </footer>
 
+  <script>
+    const container = document.getElementById('particles-char');
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.cssText = `
+        position:absolute;
+        left:${Math.random()*100}%;
+        width:${1+Math.random()*2.5}px;
+        height:${1+Math.random()*2.5}px;
+        background:rgba(162,124,255,${0.3+Math.random()*0.5});
+        border-radius:50%;
+        animation:float-up ${6+Math.random()*10}s linear ${Math.random()*12}s infinite;
+      `;
+      container.appendChild(p);
+    }
+    // Reveal on scroll
+    const cards = document.querySelectorAll('.char-card');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 150);
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(c => obs.observe(c));
+  </script>
 </body>
 </html>
