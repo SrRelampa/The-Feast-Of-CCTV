@@ -60,25 +60,24 @@ body {
     color: var(--neon-purple);
 }
 
-/* TARJETA PRINCIPAL - CORREGIDA */
+/* TARJETA PRINCIPAL */
 .bento-card-main {
-    background: #161625 !important;
+    background: #161625;
     border: 1px solid rgba(162, 124, 255, 0.3);
     border-radius: 35px;
-    padding: 60px 50px 50px;
+    padding: 60px 40px 50px;
     position: relative;
     display: flex;
-    align-items: stretch;        /* Mejor alineación vertical */
-    gap: 40px;
+    gap: 30px;
     margin-top: 30px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* ICONO EN LA ESQUERDA */
+/* ICONO FLOTANTE */
 .floating-icon-main {
     position: absolute;
-    top: -30px;    
-    left: -30px;   
+    top: -30px;
+    left: -30px;
     width: 90px;
     height: 90px;
     background: var(--neon-purple);
@@ -97,126 +96,165 @@ body {
     object-fit: contain;
 }
 
-/* === FIX DEL RECTÁNGULO BLANCO === */
+/* CONTENIDO PRINCIPAL (SUPERVIVENCIA) */
 .main-content {
     flex: 1;
-    background: #161625;
-    padding: 35px 30px;
+    background: #1a1a2e;
+    padding: 32px 28px;
     border-radius: 24px;
     border: 1px solid rgba(162, 124, 255, 0.25);
-    min-height: 220px;
+    min-width: 0;
 }
 
 .main-content h3 {
     color: var(--neon-purple);
     margin-bottom: 14px;
-    font-size: 1.65rem;
+    font-size: 1.7rem;
 }
 
 .main-content p {
     color: #e0e0ff;
-    line-height: 1.6;
-    font-size: 1.05rem;
+    line-height: 1.65;
 }
 
-/* TARJETAS PEQUEÑAS (Solitario, Duo, Trio, Squad) */
+/* TARJETAS SATÉLITE */
 .satellite-cards {
-    flex: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    align-self: stretch;
+    gap: 14px;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 320px;
 }
 
 .s-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 25px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 22px 18px;
     border-radius: 20px;
     text-align: center;
     transition: all 0.3s ease;
 }
 
 .s-card:hover {
-    background: rgba(162, 124, 255, 0.08);
-    border-color: rgba(162, 124, 255, 0.3);
-    transform: translateY(-3px);
+    background: rgba(162, 124, 255, 0.1);
+    border-color: var(--neon-purple);
 }
 
 /* --- SECCIÓN MECÁNICAS --- */
 .mechanics-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 25px;
     margin-top: 80px;
 }
 
 .mechanic-card {
     background: rgba(255, 255, 255, 0.03);
-    padding: 40px;
-    border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 35px 20px;
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
     text-align: center;
-    transition: 0.3s;
 }
 
-.mechanic-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(162, 124, 255, 0.2);
-}
-
-/* ESTILO PARA ICONOS PERSONALIZADOS */
 .mech-icon-img {
-    width: 100%;
-    height: 90px;
+    height: 85px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .mech-icon-img img {
     height: 100%;
-    width: auto;
     filter: drop-shadow(0 0 10px rgba(162, 124, 255, 0.4));
+}
+
+/* ====================== SECCIONES QUE FALTABAN ====================== */
+
+/* MUNDO DINÁMICO */
+.rotation-banner {
+    margin-top: 80px;
+    background: #161625;
+    border-radius: 28px;
+    padding: 50px 40px;
+    text-align: center;
+    border: 1px solid rgba(162, 124, 255, 0.2);
+}
+
+.rotation-banner h2 {
+    color: var(--neon-purple);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.rotation-banner p {
+    color: #e0e0ff;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* NOTA DEL EQUIPO (team-footer) */
+.team-footer {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(162, 124, 255, 0.15);
+    border-radius: 25px;
+    padding: 40px 30px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.footer-card p {
+    font-size: 1.15rem;
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+.brand-signature {
+    color: var(--neon-purple);
+    font-weight: 600;
 }
 
 /* RESPONSIVE */
 @media (max-width: 950px) {
-    .floating-icon-main { 
-        left: 15px; 
-        top: -40px; 
+    .bento-card-main {
+        flex-direction: column;
+        padding: 75px 25px 40px;
+        gap: 25px;
     }
-    
-    .bento-card-main { 
-        flex-direction: column; 
-        padding-top: 80px; 
-        text-align: center; 
-        gap: 30px;
+
+    .satellite-cards {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        max-width: none;
     }
-    
+
     .main-content {
-        min-height: auto;
         text-align: center;
     }
-    
-    .mechanics-section { 
-        grid-template-columns: 1fr; 
+
+    .mechanics-section {
+        grid-template-columns: 1fr;
     }
-    
-    .satellite-cards { 
-        width: 100%; 
-        grid-template-columns: 1fr 1fr; 
+
+    .rotation-banner {
+        padding: 40px 25px;
     }
 }
 
-/* Pequeño ajuste extra para móviles muy pequeños */
 @media (max-width: 600px) {
     .satellite-cards {
         grid-template-columns: 1fr;
     }
-    
+
     .bento-card-main {
-        padding: 60px 25px 40px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
