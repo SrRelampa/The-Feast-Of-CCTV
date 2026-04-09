@@ -19,7 +19,7 @@ body {
     overflow-x: hidden;
 }
 
-/* HERO */
+/* HERO SECTION */
 .gameplay-hero {
     height: 56vh;
     min-height: 440px;
@@ -39,20 +39,50 @@ body {
     margin-bottom: 18px;
 }
 
-/* TARJETA PRINCIPAL */
+.hero-badges {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.badge {
+    background: rgba(162, 124, 255, 0.15);
+    color: var(--neon-purple);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    border: 1px solid rgba(162, 124, 255, 0.3);
+}
+
+/* MAIN CONTAINER */
+.main-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 5% 120px;
+}
+
+.section-label {
+    font-size: 1.95rem;
+    margin: 75px 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--neon-purple);
+}
+
+/* TARJETA PRINCIPAL - SUPERVIVENCIA */
 .bento-card-main {
     background: var(--card-bg);
     border: 1px solid rgba(162, 124, 255, 0.35);
     border-radius: 38px;
-    padding: 75px 40px 50px;
+    padding: 78px 45px 55px;
     position: relative;
     display: flex;
-    gap: 35px;
-    margin-top: 20px;
+    gap: 40px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
 
-/* ICONO FLOTANTE (Supervivencia) - Equilibrado */
 .floating-icon-main {
     position: absolute;
     top: -52px;
@@ -75,18 +105,17 @@ body {
     object-fit: contain;
 }
 
-/* Contenido Supervivencia */
 .main-content {
     flex: 1;
     background: var(--glass);
-    padding: 32px 28px;
+    padding: 34px 30px;
     border-radius: 26px;
     border: 1px solid rgba(162, 124, 255, 0.3);
 }
 
 .main-content h3 {
     color: var(--neon-purple);
-    font-size: 1.8rem;
+    font-size: 1.82rem;
     margin-bottom: 14px;
 }
 
@@ -95,7 +124,7 @@ body {
     font-size: 1.07rem;
 }
 
-/* Tarjetas satélite */
+/* Satellite cards */
 .satellite-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -108,15 +137,9 @@ body {
     padding: 24px 18px;
     border-radius: 22px;
     text-align: center;
-    transition: 0.3s;
 }
 
-.s-card:hover {
-    background: rgba(162, 124, 255, 0.15);
-    border-color: var(--neon-purple);
-}
-
-/* ====================== MECÁNICAS - ICONOS DEL MISMO TAMAÑO ====================== */
+/* MECÁNICAS - ICONOS DEL MISMO TAMAÑO */
 .mechanics-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -130,47 +153,40 @@ body {
     border-radius: 32px;
     border: 1px solid rgba(255,255,255,0.1);
     text-align: center;
-    transition: all 0.4s ease;
 }
 
-.mechanic-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--neon-purple);
-}
-
-/* ESTE ES EL FIX PRINCIPAL */
 .mech-icon-img {
-    height: 110px;                    /* Tamaño fijo para los 3 iconos */
+    height: 108px;           /* Tamaño unificado para los 3 iconos */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .mech-icon-img img {
-    max-height: 100%;                 /* Respeta el contenedor */
+    max-height: 100%;
     max-width: 100%;
-    width: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 15px rgba(162, 124, 255, 0.6));
 }
 
-/* MUNDO DINÁMICO y EXPLORE */
+/* MUNDO DINÁMICO */
 .rotation-banner {
     margin-top: 80px;
     background: var(--glass);
     border-radius: 32px;
-    padding: 50px 40px;
+    padding: 52px 40px;
     text-align: center;
     border: 1px solid rgba(162, 124, 255, 0.25);
 }
 
 .rotation-banner h2 {
     color: var(--neon-purple);
-    font-size: 2.1rem;
+    font-size: 2.15rem;
     margin-bottom: 16px;
 }
 
+/* EXPLORE SECTION */
 .explore-section {
     margin-top: 90px;
 }
@@ -181,12 +197,50 @@ body {
     gap: 32px;
 }
 
+.explore-card {
+    background: var(--glass);
+    border: 1px solid rgba(162, 124, 255, 0.35);
+    border-radius: 32px;
+    padding: 45px 35px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: all 0.4s ease;
+}
+
+.explore-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-purple);
+}
+
+.card-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 25px;
+    background: rgba(162, 124, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.explore-card img {
+    width: 58%;
+    filter: drop-shadow(0 0 12px var(--neon-purple));
+}
+
+.explore-card h3 {
+    color: var(--neon-purple);
+    font-size: 1.85rem;
+    margin-bottom: 12px;
+}
+
 /* RESPONSIVE */
 @media (max-width: 950px) {
     .bento-card-main {
         flex-direction: column;
-        padding: 88px 30px 50px;
-        gap: 32px;
+        padding: 90px 30px 50px;
+        gap: 35px;
         text-align: center;
     }
 
@@ -194,8 +248,8 @@ body {
         top: -48px;
         left: 50%;
         transform: translateX(-50%);
-        width: 115px;
-        height: 115px;
+        width: 118px;
+        height: 118px;
     }
 
     .mechanics-section {
