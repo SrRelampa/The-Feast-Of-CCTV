@@ -7,9 +7,11 @@
   <link rel="stylesheet" href="Css/estilos.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <canvas id="particle-canvas"></canvas>
 
   <header class="kyamo">
     <div class="left">
@@ -22,7 +24,7 @@
         <li class="has-submenu">
           <span class="parent-title">El Juego</span>
           <ul class="submenu">
-            <li><a href="comojugar.html">Informacion</a></li>
+            <li><a href="comojugar.html">Información</a></li>
             <li><a href="Personajes.html">Personajes</a></li>
             <li><a href="powerups.html">Cosas Futuras</a></li>
           </ul>
@@ -38,9 +40,9 @@
       <div class="banner-overlay"></div>
       <div class="banner-text">
         <div class="banner-text-content">
-          <p class="banner-eyebrow">En CCTV CORPORATION</p>
+          <p class="banner-eyebrow">En CCTV Corporation</p>
           <h1>Nos dedicamos a</h1>
-          <p> Innovar en el genero Battle Royale con experiencias carismáticas y competitivas.</p>
+          <p>Innovar en el género Battle Royale con experiencias carismáticas y competitivas.</p>
         </div>
       </div>
       <div class="banner-scroll-hint">
@@ -52,42 +54,48 @@
 
   <main class="main-content">
 
-    <section id="about" class="mission-section">
-      <h2 class="section-title">Nuestra Mision</h2>
+    <section id="about" class="mission-section reveal">
+      <div class="section-header">
+        <h2 class="section-title">Nuestra Misión</h2>
+      </div>
       <p class="mission-text">
         En <strong>CCTV Corporation</strong> nos esforzamos por dar una experiencia agradable.
-        Somos un equipo dedicado a pulir cada detalle mecanico y visual para que disfruten
-        al maximo esta nueva experiencia multijugador.
+        Somos un equipo dedicado a pulir cada detalle mecánico y visual para que disfruten
+        al máximo esta nueva experiencia multijugador.
       </p>
       <div class="features-grid">
-        <div class="feature-item">
-          <span class="feature-icon">🕹️</span>
+        <div class="feature-item reveal-child">
+          <div class="feature-icon-wrap"><span class="feature-icon">🕹️</span></div>
           <h3>Jugabilidad</h3>
-          <p>Mecanicas fluidas diseñadas para la alta competencia.</p>
+          <p>Mecánicas fluidas diseñadas para la alta competencia.</p>
         </div>
-        <div class="feature-item">
-          <span class="feature-icon">🎨</span>
-          <h3>Arte Unico</h3>
+        <div class="feature-item reveal-child">
+          <div class="feature-icon-wrap"><span class="feature-icon">🎨</span></div>
+          <h3>Arte Único</h3>
           <p>Estilo visual vibrante que destaca en cada batalla.</p>
         </div>
-        <div class="feature-item">
-          <span class="feature-icon">🛡️</span>
+        <div class="feature-item reveal-child">
+          <div class="feature-icon-wrap"><span class="feature-icon">🛡️</span></div>
           <h3>Comunidad</h3>
           <p>Un entorno seguro y divertido para todos los jugadores.</p>
         </div>
       </div>
     </section>
 
-    <section id="proyecto-estrella" class="featured-project">
+    <section id="proyecto-estrella" class="featured-project reveal">
+      <div class="fp-bg-orb"></div>
       <div class="project-container">
         <div class="project-info">
-          <span class="subtitle-pill">Proyecto Destacado</span>
-          <h2 class="project-name">The Feast Of CCTV</h2>
+          <span class="subtitle-pill">✦ Proyecto Destacado</span>
+          <h2 class="project-name">The Feast<br>Of CCTV</h2>
           <p>
-            Un gran batallon de comida que aun conserva "humanidad" en sus corazones se enfrenta
-            en una batalla por la supervivencia. Con mecanicas unicas y un sistema de trofeos competitivo.
+            Un gran batallón de comida que aún conserva "humanidad" en sus corazones se enfrenta
+            en una batalla por la supervivencia. Con mecánicas únicas y un sistema de trofeos competitivo.
           </p>
-          <a href="comojugar.html" class="btn-explore">Explorar el Juego &rarr;</a>
+          <a href="comojugar.html" class="btn-explore">
+            <span>Explorar el Juego</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
         <div class="project-image-wrapper">
           <div class="game-slider">
@@ -97,6 +105,19 @@
           </div>
           <img src="Img/Logo-Juego.png" alt="Game Logo" class="floating-game-logo">
         </div>
+      </div>
+    </section>
+
+    <!-- FORO PREVIEW -->
+    <section class="forum-preview reveal">
+      <div class="fp-header">
+        <h2 class="section-title">Comunidad</h2>
+        <a href="foro.php" class="btn-foro">Ver todos los temas →</a>
+      </div>
+      <div class="forum-threads" id="forum-preview-list">
+        <div class="thread-skeleton"></div>
+        <div class="thread-skeleton"></div>
+        <div class="thread-skeleton"></div>
       </div>
     </section>
 
@@ -123,9 +144,36 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2026 CCTV Corporation | Desarrollado con imaginacion
+      &copy; 2026 CCTV Corporation | Desarrollado con imaginación
     </div>
   </footer>
 
+  <script src="Js/particles.js"></script>
+  <script src="Js/reveal.js"></script>
+  <script>
+    // Cargar preview del foro
+    fetch('Api/foro_preview.php')
+      .then(r => r.json())
+      .then(data => {
+        const list = document.getElementById('forum-preview-list');
+        if (!data.length) {
+          list.innerHTML = '<p style="color:var(--muted);text-align:center;padding:30px">Sé el primero en publicar en el foro.</p>';
+          return;
+        }
+        list.innerHTML = data.map(t => `
+          <a href="foro.php?tema=${t.id}" class="thread-item">
+            <div class="thread-icon">${t.categoria === 'estrategia' ? '⚔️' : t.categoria === 'sugerencia' ? '💡' : '💬'}</div>
+            <div class="thread-info">
+              <span class="thread-title">${t.titulo}</span>
+              <span class="thread-meta">por <strong>${t.autor}</strong> · ${t.respuestas} respuestas</span>
+            </div>
+            <span class="thread-arrow">→</span>
+          </a>
+        `).join('');
+      })
+      .catch(() => {
+        document.getElementById('forum-preview-list').innerHTML = '';
+      });
+  </script>
 </body>
 </html>
