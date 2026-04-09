@@ -1,349 +1,645 @@
 /* ====================== VARIABLES Y PALETA ====================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
+
 :root {
   --lavanda-claro: #E6D4E8;
   --lavanda-medio: #B38BC2;
   --lavanda-fuerte: #6A4E9C;
+  --lavanda-deep: #4a3370;
   --azul-lavanda: #A8C4E8;
-  --fondo: #F0E8F5; 
+  --fondo: #F0E8F5;
   --blanco: #ffffff;
   --texto-oscuro: #2d3436;
+  --muted: #7a7a9a;
+  --border-lav: rgba(179, 139, 194, 0.3);
+  --glass: rgba(255, 255, 255, 0.12);
 }
 
 /* --- General --- */
-body {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--fondo);
   color: var(--texto-oscuro);
   overflow-x: hidden;
 }
 
-/* --- Header / Navegación (LOGO MAXIMIZADO) --- */
+/* ── HEADER ── */
 .kyamo {
-  background: linear-gradient(90deg, var(--lavanda-fuerte), var(--lavanda-medio));
+  background: linear-gradient(105deg, var(--lavanda-deep) 0%, var(--lavanda-fuerte) 55%, var(--lavanda-medio) 100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 5%; 
-  box-shadow: 0 4px 15px rgba(106, 78, 156, 0.25);
+  padding: 0 5%;
+  height: 72px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  min-height: 80px; 
+  box-shadow: 0 4px 30px rgba(106, 78, 156, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.left { 
-  display: flex; 
-  align-items: center; 
-  gap: 20px; 
+.left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.logo { 
-  width: 100px; 
-  height: auto; 
-  margin-top: 5px;
-  margin-bottom: -15px; 
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+.logo {
+  width: 52px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 1001;
 }
 
 .logo:hover {
-  transform: scale(1.15) rotate(5deg);
+  transform: scale(1.12) rotate(5deg);
 }
 
 .brand-name {
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
   color: white;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 1.6rem; 
-  font-weight: 900;
+  font-size: 1.05rem;
+  font-weight: 700;
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-.main-menu { list-style: none; display: flex; gap: 15px; margin: 0; padding: 0; }
+.main-menu {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
 
-.main-menu a, .parent-title {
-  color: white;
+.main-menu > li > a,
+.parent-title {
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-weight: bold;
-  padding: 10px 16px;
-  border-radius: 25px;
-  transition: 0.3s;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 8px 16px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.25s;
+  letter-spacing: 0.3px;
 }
 
-.main-menu a:hover, .parent-title:hover { 
-  background-color: rgba(255, 255, 255, 0.25); 
+.main-menu > li > a:hover,
+.parent-title:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 /* Submenú */
 .has-submenu { position: relative; }
-.submenu {
-  display: none;
-  position: absolute;
-  background-color: white;
-  padding: 12px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  list-style: none;
-  top: 110%;
-  left: 0;
-  min-width: 180px;
-}
-.submenu li a { color: var(--lavanda-fuerte); display: block; padding: 10px; text-decoration: none; border-radius: 8px; }
-.submenu li a:hover { background-color: var(--lavanda-claro); }
-.has-submenu:hover .submenu { display: block; }
 
-/* --- BANNER --- */
-.banner { width: 100%; position: relative; overflow: hidden; }
-.banner-container { position: relative; line-height: 0; }
-.banner-img { width: 100%; height: auto; display: block; }
+.submenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: white;
+  border-radius: 16px;
+  padding: 8px;
+  list-style: none;
+  min-width: 165px;
+  box-shadow: 0 12px 35px rgba(106, 78, 156, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s;
+  border: 1px solid var(--border-lav);
+}
+
+.has-submenu:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.submenu li a {
+  display: block;
+  padding: 9px 14px;
+  border-radius: 10px;
+  color: var(--lavanda-fuerte);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.submenu li a:hover {
+  background: var(--lavanda-claro);
+}
+
+/* ── BANNER ── */
+.banner {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-container {
+  position: relative;
+  line-height: 0;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+    rgba(74, 51, 112, 0.75) 0%,
+    rgba(106, 78, 156, 0.4) 50%,
+    transparent 80%);
+}
 
 .banner-text {
   position: absolute;
   top: 50%;
-  left: 5%;
+  left: 6%;
   transform: translateY(-50%);
   color: white;
-  max-width: 550px;
+  max-width: 520px;
   line-height: normal;
 }
+
 .banner-text-content {
-    background: rgba(0, 0, 0, 0.4); 
-    padding: 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(8px); 
-    border-left: 6px solid var(--lavanda-medio);
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 36px 40px;
+  border-radius: 24px;
+  border-left: 5px solid var(--lavanda-claro);
 }
-.banner-text h1 { font-size: 3rem; margin: 0 0 10px 0; }
-.banner-text p { font-size: 1.3rem; font-weight: 300; margin: 0; }
 
-/* --- CUERPO PRINCIPAL --- */
+.banner-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  color: var(--lavanda-claro);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 600;
+  display: block;
+}
+
+.banner-text h1 {
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin: 0 0 12px;
+  font-weight: 900;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  line-height: 1.1;
+}
+
+.banner-text p {
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+
+.banner-scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50%       { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* ── MAIN CONTENT ── */
 .main-content {
-  padding: 80px 10%;
-  background: linear-gradient(180deg, #F0E8F5 0%, #FFFFFF 100%);
+  padding: 90px 8%;
+  background: linear-gradient(180deg, #F0E8F5 0%, #ffffff 100%);
 }
 
+/* ── MISIÓN ── */
 .mission-section {
   text-align: center;
   background: white;
-  padding: 60px 40px;
+  padding: 70px 50px;
   border-radius: 40px;
-  box-shadow: 0 20px 40px rgba(106, 78, 156, 0.05);
-  margin-bottom: 80px;
-  animation: fadeIn 1s ease-out;
+  box-shadow: 0 20px 60px rgba(106, 78, 156, 0.08);
+  margin-bottom: 90px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-lav);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.mission-section::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(179, 139, 194, 0.12) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .section-title {
-    color: var(--lavanda-fuerte);
-    font-size: 2.8rem;
-    font-weight: 800;
-    text-shadow: 2px 2px 0px var(--lavanda-claro);
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  color: var(--lavanda-fuerte);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: 1px;
 }
+
 .section-title::after {
-    content: '';
-    display: block; width: 60px; height: 4px;
-    background: var(--lavanda-medio); margin: 15px auto; border-radius: 2px;
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, var(--lavanda-fuerte), var(--lavanda-medio));
+  margin: 14px auto 0;
+  border-radius: 2px;
 }
 
-.mission-text { font-size: 1.15rem; line-height: 1.8; color: #555; max-width: 850px; margin: 0 auto; }
+.mission-text {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: #555;
+  max-width: 820px;
+  margin: 30px auto 0;
+}
 
-/* Grid de Características */
+.mission-text strong {
+  color: var(--lavanda-fuerte);
+}
+
+/* Features grid */
 .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
-    margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 55px;
 }
+
 .feature-item {
-    background: #fdfbff; padding: 30px; border-radius: 20px;
-    border: 2px solid var(--lavanda-claro); 
-    box-shadow: 0 10px 20px rgba(179, 139, 194, 0.15);
-    transition: 0.3s ease;
+  background: #fdfbff;
+  padding: 36px 28px;
+  border-radius: 24px;
+  border: 1.5px solid var(--lavanda-claro);
+  box-shadow: 0 8px 24px rgba(179, 139, 194, 0.12);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
 }
-.feature-item:hover { transform: translateY(-10px); border-color: var(--lavanda-fuerte); background-color: var(--blanco); }
-.feature-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
 
-/* --- SECCIÓN PROYECTO CON SLIDER Y LOGO --- */
+.feature-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(179, 139, 194, 0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  border-color: var(--lavanda-fuerte);
+  box-shadow: 0 20px 50px rgba(106, 78, 156, 0.18);
+}
+
+.feature-item:hover::before { opacity: 1; }
+
+.feature-icon {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.feature-item h3 {
+  color: var(--lavanda-fuerte);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* ── PROYECTO DESTACADO ── */
 .featured-project {
-  background: linear-gradient(135deg, var(--lavanda-fuerte) 0%, var(--lavanda-medio) 100%);
-  padding: 60px;
+  background: linear-gradient(135deg, var(--lavanda-deep) 0%, var(--lavanda-fuerte) 55%, var(--lavanda-medio) 100%);
+  padding: 70px 60px;
   border-radius: 40px;
-  box-shadow: 0 15px 40px rgba(106, 78, 156, 0.3);
+  box-shadow: 0 20px 60px rgba(106, 78, 156, 0.35);
   color: white;
+  position: relative;
+  overflow: hidden;
 }
 
-.project-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+.featured-project::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
 
-.project-info { flex: 1; min-width: 300px; }
-.project-info .subtitle { color: var(--lavanda-claro); font-weight: bold; letter-spacing: 2px; font-size: 0.9rem; }
-.project-name { font-size: 2.8rem; font-weight: bold; margin: 10px 0 20px 0; }
-.project-info p { color: rgba(255, 255, 255, 0.9); line-height: 1.6; margin-bottom: 25px; }
+.featured-project::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(168, 196, 232, 0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.project-container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.project-info { flex: 1; min-width: 280px; }
+
+.subtitle-pill {
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--lavanda-claro);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+/* Retrocompat con .subtitle en caso exista */
+.subtitle {
+  color: var(--lavanda-claro);
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.project-name {
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900;
+  margin: 0 0 20px;
+  line-height: 1.1;
+}
+
+.project-info > p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  font-size: 1rem;
+}
 
 .btn-explore {
-  display: inline-block; background-color: white; color: var(--lavanda-fuerte);
-  padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  color: var(--lavanda-fuerte);
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
-.btn-explore:hover { background-color: var(--lavanda-claro); transform: translateY(-3px) scale(1.05); }
 
-/* Contenedor del Slider y Logo del Juego */
+.btn-explore:hover {
+  background: var(--lavanda-claro);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Slider + logo */
 .project-image-wrapper {
-    flex: 1;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 450px; 
-    border-radius: 30px;
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 380px;
+  border-radius: 30px;
 }
 
-/* El Logo del Videojuego Maximizado */
-.floating-game-logo {
-    width: 100%;
-    max-width: 500px; /* Tamaño épico para el logo */
-    height: auto;
-    z-index: 10;
-    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
-    animation: float 4s ease-in-out infinite;
-}
-
-/* El Carrusel de Fondo Animado */
 .game-slider {
-    position: absolute;
-    width: 100%; height: 100%; top: 0; left: 0;
-    border-radius: 30px; overflow: hidden;
-    opacity: 0.3; /* No distrae el texto */
-    mask-image: radial-gradient(circle, black 50%, transparent 100%);
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  border-radius: 30px;
+  overflow: hidden;
+  opacity: 0.25;
+  mask-image: radial-gradient(circle, black 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle, black 50%, transparent 100%);
 }
+
 .slide {
-    position: absolute; width: 100%; height: 100%;
-    object-fit: cover; opacity: 0;
-    animation: autoSlider 12s infinite;
+  position: absolute;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: autoSlider 12s infinite;
 }
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 4s; }
 .slide:nth-child(3) { animation-delay: 8s; }
 
-/* --- Animaciones --- */
+.floating-game-logo {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  z-index: 10;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5));
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ── ANIMACIONES ── */
 @keyframes autoSlider {
-    0% { opacity: 0; transform: scale(1.1); }
-    10% { opacity: 1; }
-    33% { opacity: 1; }
-    43% { opacity: 0; transform: scale(1); }
-    100% { opacity: 0; }
+  0%   { opacity: 0; transform: scale(1.1); }
+  10%  { opacity: 1; }
+  33%  { opacity: 1; }
+  43%  { opacity: 0; transform: scale(1); }
+  100% { opacity: 0; }
 }
-@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* --- Footer --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-18px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── FOOTER ── */
 .site-footer {
-  background-color: var(--lavanda-fuerte);
+  background: linear-gradient(135deg, var(--lavanda-deep) 0%, var(--lavanda-fuerte) 100%);
   color: white;
-  padding: 60px 5% 20px;
-  border-top: 5px solid var(--azul-lavanda);
+  padding: 60px 5% 24px;
+  border-top: 4px solid var(--azul-lavanda);
 }
-.footer-wrapper { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
-.footer-logo { width: 140px; height: auto; margin-bottom: 20px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3)); }
 
-.social-icons img { width: 32px; margin-right: 15px; transition: 0.3s; }
-.social-icons img:hover { transform: translateY(-5px); }
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 24px;
+}
+
+.footer-logo {
+  width: 110px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.footer-column h4 {
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--lavanda-claro);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.contact-info p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.social-icons a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
 
 .footer-bottom {
-  text-align: center; margin-top: 40px; padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.8;
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 1px;
 }
 
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .features-grid { grid-template-columns: 1fr; }
+  .project-container { flex-direction: column; gap: 36px; }
+  .project-info { text-align: center; }
+  .featured-project { padding: 48px 28px; }
+  .project-image-wrapper { min-height: 260px; width: 100%; }
+  .floating-game-logo { max-width: 240px; }
+}
 
-/* ====================== MODO MÓVIL DEFINITIVO (TOTAL) ====================== */
 @media (max-width: 768px) {
-  
-  /* 1. Header compacto */
   .kyamo {
     padding: 8px 5%;
-    flex-direction: column; 
-    gap: 5px;
+    flex-direction: column;
+    height: auto;
+    gap: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   .left { flex-direction: row; gap: 10px; }
-  .logo { width: 45px; margin: 0; }
-  .brand-name { font-size: 1.1rem; letter-spacing: 1px; }
-  .main-menu { gap: 5px; }
-  .main-menu a, .parent-title { font-size: 0.8rem; padding: 5px 10px; }
+  .logo { width: 42px; }
+  .brand-name { font-size: 0.88rem; letter-spacing: 1.5px; }
+  .main-menu { gap: 4px; }
+  .main-menu > li > a, .parent-title { font-size: 0.78rem; padding: 6px 10px; }
 
-  /* 2. Banner: Texto miniatura */
-  .banner-text {
-    top: 50%;
-    left: 5%;
-    max-width: 180px; 
-    transform: translateY(-50%);
-    position: absolute; 
-  }
-  .banner-text-content {
-    padding: 8px 12px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-  }
-  .banner-text h1 { font-size: 1rem; margin: 0; }
-  .banner-text p { font-size: 0.65rem; line-height: 1.1; }
+  .banner-text { max-width: 200px; }
+  .banner-text-content { padding: 12px 16px; }
+  .banner-text h1 { font-size: 1.1rem; }
+  .banner-text p { font-size: 0.68rem; line-height: 1.3; }
 
-  /* 3. Contenido principal */
-  .main-content { padding: 30px 5%; }
-  .section-title { font-size: 1.8rem; }
-  .features-grid { grid-template-columns: 1fr; gap: 15px; }
+  .main-content { padding: 40px 5%; }
+  .mission-section { padding: 44px 22px; }
+  .section-title { font-size: 1.7rem; }
 
-  /* 4. TARJETA DEL JUEGO (ARREGLO DE TEXTO Y ESPACIOS) */
-  .featured-project {
-    padding: 40px 20px !important; /* Forzamos espacio interno */
-    border-radius: 35px;
-    margin: 0 10px; /* Evita que la tarjeta toque los bordes del cel */
-  }
+  .footer-wrapper { flex-direction: column; text-align: center; gap: 25px; }
+  .footer-logo { width: 80px; margin: 0 auto 16px; }
+  .social-icons { justify-content: center; }
+  .contact-info p { justify-content: center; }
+}
 
-  .project-info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra títulos, párrafos y botones */
-  }
-
-  .project-name {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .project-info p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    max-width: 92%; /* EL TRUCO: evita que el texto toque los bordes */
-    margin: 0 auto 25px auto; 
-    text-align: center;
-  }
-
-  /* 5. EL LOGO (LA MANZANA) */
-  .project-image-wrapper {
-    min-height: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px; /* Separa la manzana del botón de arriba */
-    width: 100%;
-  }
-
-  .floating-game-logo {
-    width: 85%; /* Se adapta al ancho del dispositivo */
-    max-width: 260px; /* Tamaño máximo para que no se vea gigante */
-    height: auto;
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
-  }
-
-  /* 6. Footer móvil */
-  .footer-wrapper {
-    flex-direction: column;
-    text-align: center;
-    gap: 25px;
-  }
-  .footer-logo { width: 80px; margin: 0 auto; }
+@media (max-width: 480px) {
+  .banner-scroll-hint { display: none; }
+  .project-name { font-size: 1.6rem; }
+  .project-info > p { font-size: 0.9rem; }
+  .floating-game-logo { max-width: 200px; }
 }
