@@ -19,9 +19,9 @@ body {
     overflow-x: hidden;
 }
 
-/* --- HERO SECTION (CORRECCIÓN DE CENTRADO) --- */
+/* --- HERO SECTION --- */
 .gameplay-hero {
-    height: 85vh; /* Un poco más alto para mejor impacto */
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,10 +31,10 @@ body {
 
 .hero-content {
     width: 100%;
-    max-width: 900px; /* Evita que el texto se estire demasiado */
+    max-width: 900px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* ESTO CENTRA TODO EL CONTENIDO */
+    align-items: center;
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
@@ -45,7 +45,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
-    width: 100%;
 }
 
 .hero-badges {
@@ -67,66 +66,64 @@ body {
     text-transform: uppercase;
 }
 
-.hero-subtitle {
-    font-size: 1.2rem;
-    opacity: 0.8;
-    line-height: 1.6;
+/* --- CONTENEDOR Y TITULOS --- */
+.main-container {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 5% 100px;
 }
 
-/* --- ICONOS PERSONALIZADOS (Ajuste de imágenes) --- */
-.custom-icon {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
+.section-label {
+    font-size: 1.8rem;
+    margin: 30px 0 20px; /* Reducido para subir el texto de MODOS DE JUEGO */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--neon-purple);
 }
 
-.custom-icon-s {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
+/* --- TARJETA PRINCIPAL (CORRECCIÓN FONDO BLANCO) --- */
+.bento-card-main {
+    background: #161625 !important; /* Color oscuro sólido para evitar cuadros blancos */
+    border: 1px solid rgba(162, 124, 255, 0.2);
+    border-radius: 35px;
+    padding: 60px 50px 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    min-height: 380px;
+    margin-top: 25px;
 }
 
+/* --- ICONO INCRUSTADO (Referencia a tu dibujo) --- */
 .floating-icon-main {
     position: absolute;
-    top: -30px;
-    left: 40px;
-    width: 80px;
-    height: 80px;
+    top: -30px;    /* Se sale hacia arriba */
+    left: -30px;   /* Se sale hacia la izquierda */
+    width: 90px;
+    height: 90px;
     background: var(--neon-purple);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 30px rgba(162, 124, 255, 0.6);
-    animation: float 4s ease-in-out infinite, pulse 3s infinite;
-    z-index: 5;
-    overflow: hidden; /* Asegura que la imagen no se salga del círculo */
+    box-shadow: 0 0 25px rgba(162, 124, 255, 0.5);
+    z-index: 10;
+    border: 5px solid var(--deep-bg); /* Efecto de separación de la tarjeta */
+    animation: pulse 3s infinite;
 }
 
-/* --- TARJETA MODOS (CORRECCIÓN DE BUGS) --- */
-.bento-card-main {
-    background: linear-gradient(135deg, rgba(162, 124, 255, 0.12), rgba(255, 0, 255, 0.05));
-    border: 1px solid rgba(162, 124, 255, 0.2);
-    border-radius: 40px;
-    padding: 50px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    margin-top: 40px;
+.floating-icon-main img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
 }
 
 .main-content {
     flex: 1;
-    text-align: left; /* El texto de supervivencia se ve mejor a la izquierda al tener las tarjetas al lado */
 }
 
-.main-content h3 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 10px;
-}
-
+/* --- TARJETAS PEQUEÑAS (Sin iconos) --- */
 .satellite-cards {
     flex: 1;
     display: grid;
@@ -135,45 +132,23 @@ body {
 }
 
 .s-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 25px;
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    text-align: center;
     transition: 0.3s;
 }
 
-/* --- ANIMACIONES Y RESPONSIVE --- */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+.s-info h4 { color: #fff; font-size: 1.1rem; }
+.s-info p { color: var(--neon-purple); font-weight: bold; }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-@media (max-width: 950px) {
-    .bento-card-main {
-        flex-direction: column;
-        padding: 60px 20px 40px;
-        text-align: center;
-    }
-    .main-content { text-align: center; }
-    .satellite-cards { width: 100%; grid-template-columns: 1fr; }
-    .floating-icon-main { left: 50%; transform: translateX(-50%); }
-}
-
-/* Estilos de las otras secciones (Mecánicas, Banner, Footer) deben seguir como estaban */
-/* --- SECCIÓN MECÁNICAS --- */
+/* --- SECCIÓN MECÁNICAS CON ICONOS PROPIOS --- */
 .mechanics-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .mechanic-card {
@@ -182,20 +157,61 @@ body {
     border-radius: 40px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     text-align: center;
-    animation: float 5s ease-in-out infinite;
+    transition: 0.3s;
 }
 
-.mech-icon {
-    font-size: 3rem;
+.mechanic-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-purple);
+}
+
+.mech-icon-img {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
-    display: block;
 }
 
-.energy { color: #ffd700; }
-.trophie { color: #4facfe; }
-.ulti { color: var(--neon-pink); }
+.mech-icon-img img {
+    height: 100%;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(162, 124, 255, 0.4));
+}
 
-/* --- BANNER ROTACIÓN --- */
+/* --- ANIMACIONES --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(162, 124, 255, 0.4); }
+    50% { box-shadow: 0 0 40px rgba(162, 124, 255, 0.8); }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 950px) {
+    .floating-icon-main {
+        left: 15px; /* Evita que se salga de la pantalla en móviles */
+        top: -40px;
+    }
+    .bento-card-main {
+        flex-direction: column;
+        padding-top: 70px;
+        text-align: center;
+    }
+    .mechanics-section {
+        grid-template-columns: 1fr;
+    }
+    .satellite-cards {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- OTROS --- */
 .rotation-banner {
     background: linear-gradient(90deg, #1a1a2e, #2d1b4d);
     padding: 60px;
@@ -205,12 +221,6 @@ body {
     border: 1px solid rgba(162, 124, 255, 0.1);
 }
 
-.rotation-banner h2 {
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-}
-
-/* --- FIRMA DEL EQUIPO --- */
 .team-footer {
     text-align: center;
     margin-bottom: 80px;
@@ -222,52 +232,9 @@ body {
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     display: inline-block;
-    max-width: 100%;
-}
-
-.footer-card p {
-    font-style: italic;
-    color: #bbb;
-    margin-bottom: 10px;
-    line-height: 1.6;
 }
 
 .brand-signature {
     color: var(--neon-purple);
     font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-}
-
-/* --- RESPONSIVE (MÓVIL Y TABLET) --- */
-@media (max-width: 950px) {
-    .bento-card-main {
-        flex-direction: column;
-        text-align: center;
-        padding: 60px 25px 40px;
-    }
-
-    .floating-icon-main {
-        left: 50%;
-        transform: translateX(-50%);
-        top: -40px;
-    }
-
-    .satellite-cards {
-        width: 100%;
-        grid-template-columns: 1fr;
-    }
-
-    .s-card:hover {
-        transform: scale(1.02); /* Menos movimiento en móvil */
-    }
-
-    .mechanics-section {
-        grid-template-columns: 1fr;
-    }
-    
-    .rotation-banner {
-        padding: 40px 20px;
-    }
 }
