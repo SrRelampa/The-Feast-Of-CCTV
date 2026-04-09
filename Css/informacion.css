@@ -258,3 +258,133 @@ body {
         padding-right: 20px;
     }
 }
+
+
+/* ====================== NUEVA SECCIÓN EXPLORE ====================== */
+.explore-section {
+    margin-top: 90px;
+}
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.explore-card {
+    background: #161625;
+    border: 1px solid rgba(162, 124, 255, 0.25);
+    border-radius: 28px;
+    padding: 40px 35px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.explore-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(162, 124, 255, 0.15), transparent);
+    transition: 0.7s;
+}
+
+.explore-card:hover::before {
+    left: 200%;
+}
+
+.explore-card:hover {
+    transform: translateY(-12px);
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 40px rgba(162, 124, 255, 0.35);
+}
+
+.card-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+    background: rgba(162, 124, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+.explore-card:hover .card-icon {
+    background: rgba(162, 124, 255, 0.25);
+    transform: scale(1.1);
+}
+
+.explore-card img {
+    width: 55%;
+    height: 55%;
+    filter: drop-shadow(0 0 12px var(--neon-purple));
+}
+
+.explore-card h3 {
+    font-size: 1.85rem;
+    color: var(--neon-purple);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.explore-card p {
+    color: #c0c0ff;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.explore-link {
+    color: var(--neon-purple);
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: inline-block;
+    position: relative;
+}
+
+.explore-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: var(--neon-purple);
+    transition: 0.3s;
+}
+
+.explore-card:hover .explore-link::after {
+    width: 100%;
+}
+
+/* Mejoras generales al diseño actual (más pulido) */
+.bento-card-main,
+.mechanic-card,
+.rotation-banner,
+.footer-card {
+    transition: all 0.4s ease;
+}
+
+.bento-card-main:hover,
+.mechanic-card:hover {
+    box-shadow: 0 0 45px rgba(162, 124, 255, 0.25);
+}
+
+/* Ajuste responsive para las nuevas tarjetas */
+@media (max-width: 700px) {
+    .explore-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .explore-card {
+        padding: 35px 25px;
+    }
+}
