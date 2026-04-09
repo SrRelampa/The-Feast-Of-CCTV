@@ -302,7 +302,7 @@ body {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 32px;
-    padding: 92px 45px 55px;
+    padding: 40px 45px 55px;
     position: relative;
     display: flex;
     gap: 40px;
@@ -325,7 +325,7 @@ body {
 
 .floating-icon-main {
     position: absolute;
-    top: -55px;
+    top: -44px;
     left: 44px;
     width: 110px;
     height: 110px;
